@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/echo-tracker-develop.iml" filepath="$PROJECT_DIR$/.idea/modules/echo-tracker-develop.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/echo-tracker-develop.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/echo-tracker-develop.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/reporting/echo-tracker-develop.reporting.iml" filepath="$PROJECT_DIR$/.idea/modules/reporting/echo-tracker-develop.reporting.iml" />
+    </modules>
+  </component>
+</project>

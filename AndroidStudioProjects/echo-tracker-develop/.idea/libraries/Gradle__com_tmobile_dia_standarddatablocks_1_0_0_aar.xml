@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.tmobile.dia:standarddatablocks:1.0.0@aar">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/541baed99ac34837f9e2f314715b4a4d/jetified-standarddatablocks-1.0.0/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e6b3fb78ffb6cfe58779b10aca29c6d4/jetified-standarddatablocks-1.0.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e6b3fb78ffb6cfe58779b10aca29c6d4/jetified-standarddatablocks-1.0.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e6b3fb78ffb6cfe58779b10aca29c6d4/jetified-standarddatablocks-1.0.0/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Gradle: com.tmobile.asdk:networkhandler:1.0.8.0@aar">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/6e05e8b0d6ae7aba7920128a2d52e3af/jetified-networkhandler-1.0.8.0/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/6e05e8b0d6ae7aba7920128a2d52e3af/jetified-networkhandler-1.0.8.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/6e05e8b0d6ae7aba7920128a2d52e3af/jetified-networkhandler-1.0.8.0/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.tmobile.asdk/networkhandler/1.0.8.0/b76a631458764d46630ecfb05e2c0f4ae3c70cb5/networkhandler-1.0.8.0-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES />
+  </library>
+</component>

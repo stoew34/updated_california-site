@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Gradle: ./reporting/libs/pojos-1.0.4.jar">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/reporting/libs/pojos-1.0.4.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

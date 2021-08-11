@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+option java_package = "com.tmobile.echolocate";
+option java_multiple_files = true;
+
+message CallStatusProto {
+  repeated  Call call = 1;
+
+  message Call{
+    string callID = 2;
+    Status status = 3;
+
+    enum Status{
+      STARTED = 0;
+      ENDED = 1;
+    }
+  }
+
+}
+
+

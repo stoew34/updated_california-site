@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.tmobile.dia:configuration:1.0.12@aar">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/2a8bd6a136cc5131e49ed365a4e3b41f/jetified-configuration-1.0.12/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c3dbaddc1758a183f6b2f083473b01d2/jetified-configuration-1.0.12/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c3dbaddc1758a183f6b2f083473b01d2/jetified-configuration-1.0.12/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c3dbaddc1758a183f6b2f083473b01d2/jetified-configuration-1.0.12/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

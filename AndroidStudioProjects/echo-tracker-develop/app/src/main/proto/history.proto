@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+option java_package = "com.tmobile.echolocate";
+option java_multiple_files = true;
+
+message HistoryProto {
+  repeated Capture capture = 1;
+  message Capture{
+    int64 time = 2;
+    string callID = 3;
+    string intent = 4;
+  }
+}
+
+

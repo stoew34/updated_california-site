@@ -1,0 +1,408 @@
+[
+  {
+    "numDiscardedIntents": 0,
+    "schemaVersion": "",
+    "callSessions": [
+      {
+        "networkIdentity": {
+          "MCC": "",
+          "MNC": ""
+        },
+        "callId": "",
+        "callNumber": "",
+        "clientVersion": "",
+        "OEMSV": {
+          "SV": "01",
+          "customVersion": "",
+          "radioVersion": "",
+          "buildName": "",
+          "androidVersion": ""
+        },
+        "deviceIntents": {
+          "appTriggeredCallData": [
+            {
+              "appName": "Phone",
+              "appPackageId": "com.android.phone",
+              "appVersionCode": "1",
+              "appVersionName": "1.0.0",
+              "oemTimestamp": "2018-05-16T16:14:10.456-0700",
+              "eventTimestamp": "2018-05-16T16:14:10.456-0700",
+              "eventInfo": {
+                "cellInfo": {
+                  "ECIO": "",
+                  "RSCP": "",
+                  "RSRP": "",
+                  "RSRQ": "",
+                  "RSSI": "",
+                  "SINR": "",
+                  "SNR": "",
+                  "LAC": "",
+                  "networkBand": "",
+                  "cellId": "24961293",
+                  "networkType": "WFC2"
+                },
+                "location": {
+                  "altitude": -122.1650322,
+                  "altitudePrecision": 20.433000564575195,
+                  "latitude": 47.5778284,
+                  "locationAge": 0,
+                  "longitude": -122.1650322,
+                  "precision": 20.433000564575195
+                }
+              }
+            }
+          ],
+          "callSettingData": [
+            {
+              "volteStatus": "UNREGISTERED",
+              "WFCStatus": "REGISTERED",
+              "WFCPreference": "WIFIPREFFERED",
+              "oemTimestamp": "2018-05-16T16:14:10.456-0700",
+              "eventTimestamp": "2018-05-16T16:14:10.456-0700",
+              "eventInfo": {
+                "cellInfo": {
+                  "ECIO": "",
+                  "RSCP": "",
+                  "RSRP": "",
+                  "RSRQ": "",
+                  "RSSI": "",
+                  "SINR": "",
+                  "SNR": "",
+                  "LAC": "",
+                  "networkBand": "",
+                  "cellId": "24961293",
+                  "networkType": "WFC2"
+                },
+                "location": {
+                  "altitude": -122.1650322,
+                  "altitudePrecision": 20.433000564575195,
+                  "latitude": 47.5778284,
+                  "locationAge": 0,
+                  "longitude": -122.1650322,
+                  "precision": 20.433000564575195
+                }
+              }
+            }
+          ],
+          "detailedCallStateData": [
+            {
+              "callCode": "NA",
+              "callState": "ATTEMPTING",
+              "oemTimestamp": "2018-05-16T16:14:10.456-0700",
+              "eventTimestamp": "2018-05-16T16:14:10.456-0700",
+              "eventInfo": {
+                "cellInfo": {
+                  "ECIO": "",
+                  "RSCP": "",
+                  "RSRP": "",
+                  "RSRQ": "",
+                  "RSSI": "",
+                  "SINR": "",
+                  "SNR": "",
+                  "LAC": "",
+                  "networkBand": "",
+                  "cellId": "24961293",
+                  "networkType": "WFC2"
+                },
+                "location": {
+                  "altitude": -122.1650322,
+                  "altitudePrecision": 20.433000564575195,
+                  "latitude": 47.5778284,
+                  "locationAge": 0,
+                  "longitude": -122.1650322,
+                  "precision": 20.433000564575195
+                }
+              }
+            },
+            {
+              "callCode": "NA",
+              "callState": "ESTABLISHED",
+              "oemTimestamp": "2018-05-16T16:14:10.456-0700",
+              "eventTimestamp": "2018-05-16T16:14:10.456-0700",
+              "eventInfo": {
+                "cellInfo": {
+                  "ECIO": "",
+                  "RSCP": "",
+                  "RSRP": "",
+                  "RSRQ": "",
+                  "RSSI": "",
+                  "SINR": "",
+                  "SNR": "",
+                  "LAC": "",
+                  "networkBand": "",
+                  "cellId": "24961293",
+                  "networkType": "WFC2"
+                },
+                "location": {
+                  "altitude": -122.1650322,
+                  "altitudePrecision": 20.433000564575195,
+                  "latitude": 47.5778284,
+                  "locationAge": 0,
+                  "longitude": -122.1650322,
+                  "precision": 20.433000564575195
+                }
+              }
+            }
+          ],
+          "imsSignallingData": [
+            {
+              "SIPCallId": "iyydYbN77oc6esu315KRqA..@2607:fc20:82a8:5dfb:0:4a:7445:3101",
+              "SIPCseq": "CSeq: 1 INVITE",
+              "SIPLine1": "INVITE sip:9174155811;phone-context=msg.pc.t-mobile.com@msg.pc.t-mobile.com;user=phone SIP/2.0",
+              "SIPOrigin": "SENT",
+              "SIPReason": "NA",
+              "SIPSDP": ";\"c=IN IP6 2607:fc20:82a8:5dfb:0:4a:7445:3101\";\"a=rtpmap:127 EVS/16000\";\"a=rtpmap:114 AMR-WB/16000/1\";\"a=rtpmap:113 AMR-WB/16000/1\";\"a=rtpmap:102 AMR/8000/1\";\"a=rtpmap:115 AMR/8000/1\";\"a=rtpmap:105 telephone-event/16000\";\"a=rtpmap:101 telephone-event/8000\";\"a=sendrecv\";",
+              "oemTimestamp": "2018-05-16T16:14:10.456-0700",
+              "eventTimestamp": "2018-05-16T16:14:10.456-0700",
+              "eventInfo": {
+                "cellInfo": {
+                  "ECIO": "",
+                  "RSCP": "",
+                  "RSRP": "",
+                  "RSRQ": "",
+                  "RSSI": "",
+                  "SINR": "",
+                  "SNR": "",
+                  "LAC": "",
+                  "networkBand": "",
+                  "cellId": "24961293",
+                  "networkType": "WFC2"
+                },
+                "location": {
+                  "altitude": -122.1650322,
+                  "altitudePrecision": 20.433000564575195,
+                  "latitude": 47.5778284,
+                  "locationAge": 0,
+                  "longitude": -122.1650322,
+                  "precision": 20.433000564575195
+                }
+              }
+            }
+          ],
+          "rtpdlStateData": [
+            {
+              "delay": 0,
+              "sequence": 0,
+              "jitter": 0,
+              "lossRate": 64.67,
+              "measuredPeriod": 5000,
+              "oemTimestamp": "2018-05-16T16:14:10.456-0700",
+              "eventTimestamp": "2018-05-16T16:14:10.456-0700",
+              "eventInfo": {
+                "cellInfo": {
+                  "ECIO": "",
+                  "RSCP": "",
+                  "RSRP": "",
+                  "RSRQ": "",
+                  "RSSI": "",
+                  "SINR": "",
+                  "SNR": "",
+                  "LAC": "",
+                  "networkBand": "",
+                  "cellId": "24961293",
+                  "networkType": "WFC2"
+                },
+                "location": {
+                  "altitude": -122.1650322,
+                  "altitudePrecision": 20.433000564575195,
+                  "latitude": 47.5778284,
+                  "locationAge": 0,
+                  "longitude": -122.1650322,
+                  "precision": 20.433000564575195
+                }
+              }
+            }
+          ],
+          "uiCallStateData": [
+            {
+              "UICallState": "CALL_PRESSED",
+              "oemTimestamp": "2018-05-16T16:14:10.456-0700",
+              "eventTimestamp": "2018-05-16T16:14:10.456-0700",
+              "eventInfo": {
+                "cellInfo": {
+                  "ECIO": "",
+                  "RSCP": "",
+                  "RSRP": "",
+                  "RSRQ": "",
+                  "RSSI": "",
+                  "SINR": "",
+                  "SNR": "",
+                  "LAC": "",
+                  "networkBand": "",
+                  "cellId": "24961293",
+                  "networkType": "WFC2"
+                },
+                "location": {
+                  "altitude": -122.1650322,
+                  "altitudePrecision": 20.433000564575195,
+                  "latitude": 47.5778284,
+                  "locationAge": 0,
+                  "longitude": -122.1650322,
+                  "precision": 20.433000564575195
+                }
+              }
+            },
+            {
+              "UICallState": "RINGING",
+              "oemTimestamp": "2018-05-16T16:14:10.456-0700",
+              "eventTimestamp": "2018-05-16T16:14:10.456-0700",
+              "eventInfo": {
+                "cellInfo": {
+                  "ECIO": "",
+                  "RSCP": "",
+                  "RSRP": "",
+                  "RSRQ": "",
+                  "RSSI": "",
+                  "SINR": "",
+                  "SNR": "",
+                  "LAC": "",
+                  "networkBand": "",
+                  "cellId": "24961293",
+                  "networkType": "WFC2"
+                },
+                "location": {
+                  "altitude": -122.1650322,
+                  "altitudePrecision": 20.433000564575195,
+                  "latitude": 47.5778284,
+                  "locationAge": 0,
+                  "longitude": -122.1650322,
+                  "precision": 20.433000564575195
+                }
+              }
+            },
+            {
+              "UICallState": "CALL_CONNECTED",
+              "oemTimestamp": "2018-05-16T16:14:10.456-0700",
+              "eventTimestamp": "2018-05-16T16:14:10.456-0700",
+              "eventInfo": {
+                "cellInfo": {
+                  "ECIO": "",
+                  "RSCP": "",
+                  "RSRP": "",
+                  "RSRQ": "",
+                  "RSSI": "",
+                  "SINR": "",
+                  "SNR": "",
+                  "LAC": "",
+                  "networkBand": "",
+                  "cellId": "24961293",
+                  "networkType": "WFC2"
+                },
+                "location": {
+                  "altitude": -122.1650322,
+                  "altitudePrecision": 20.433000564575195,
+                  "latitude": 47.5778284,
+                  "locationAge": 0,
+                  "longitude": -122.1650322,
+                  "precision": 20.433000564575195
+                }
+              }
+            },
+            {
+              "UICallState": "END_PRESSED",
+              "oemTimestamp": "2018-05-16T16:14:10.456-0700",
+              "eventTimestamp": "2018-05-16T16:14:10.456-0700",
+              "eventInfo": {
+                "cellInfo": {
+                  "ECIO": "",
+                  "RSCP": "",
+                  "RSRP": "",
+                  "RSRQ": "",
+                  "RSSI": "",
+                  "SINR": "",
+                  "SNR": "",
+                  "LAC": "",
+                  "networkBand": "",
+                  "cellId": "24961293",
+                  "networkType": "WFC2"
+                },
+                "location": {
+                  "altitude": -122.1650322,
+                  "altitudePrecision": 20.433000564575195,
+                  "latitude": 47.5778284,
+                  "locationAge": 0,
+                  "longitude": -122.1650322,
+                  "precision": 20.433000564575195
+                }
+              }
+            },
+            {
+              "UICallState": "CALL_DISCONNECTED",
+              "oemTimestamp": "2018-05-16T16:14:10.456-0700",
+              "eventTimestamp": "2018-05-16T16:14:10.456-0700",
+              "eventInfo": {
+                "cellInfo": {
+                  "ECIO": "",
+                  "RSCP": "",
+                  "RSRP": "",
+                  "RSRQ": "",
+                  "RSSI": "",
+                  "SINR": "",
+                  "SNR": "",
+                  "LAC": "",
+                  "networkBand": "",
+                  "cellId": "24961293",
+                  "networkType": "WFC2"
+                },
+                "location": {
+                  "altitude": -122.1650322,
+                  "altitudePrecision": 20.433000564575195,
+                  "latitude": 47.5778284,
+                  "locationAge": 0,
+                  "longitude": -122.1650322,
+                  "precision": 20.433000564575195
+                }
+              }
+            }
+          ],
+          "radioHandoverData": [
+            {
+              "handoverState": "",
+              "oemTimestamp": "2018-05-16T16:14:10.456-0700",
+              "eventTimestamp": "2018-05-16T16:14:10.456-0700",
+              "eventInfo": {
+                "cellInfo": {
+                  "ECIO": "",
+                  "RSCP": "",
+                  "RSRP": "",
+                  "RSRQ": "",
+                  "RSSI": "",
+                  "SINR": "",
+                  "SNR": "",
+                  "LAC": "",
+                  "networkBand": "",
+                  "cellId": "24961293",
+                  "networkType": "WFC2"
+                },
+                "location": {
+                  "altitude": -122.1650322,
+                  "altitudePrecision": 20.433000564575195,
+                  "latitude": 47.5778284,
+                  "locationAge": 0,
+                  "longitude": -122.1650322,
+                  "precision": 20.433000564575195
+                }
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "location": {
+      "altitude": -122.1650322,
+      "altitudePrecision": 20.433000564575195,
+      "latitude": 47.5778284,
+      "locationAge": 0,
+      "longitude": -122.1650322,
+      "precision": 20.433000564575195,
+      "timestamp": "2019-10-16T16:14:10.456-0700"
+    },
+    "deviceInfo": {
+      "UUID": "",
+      "IMEI": "",
+      "IMSI": "",
+      "MSISDN": "",
+      "testSessionID": ""
+    }
+  }
+]

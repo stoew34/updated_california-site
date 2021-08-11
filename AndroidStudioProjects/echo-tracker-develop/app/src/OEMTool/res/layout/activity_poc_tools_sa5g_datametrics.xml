@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:orientation="vertical">
+
+    <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_lte_all_log"
+            android:layout_width="260dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="26dp"
+            android:background="@color/magenta"
+            android:foreground="?attr/selectableItemBackground"
+            android:gravity="center"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:text="@string/log"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_file_path"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="20dp"
+            android:inputType="textMultiLine"
+            android:textColor="@color/magenta"
+            android:textColorHint="@color/colorAccent"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_lte_all_log" />
+
+
+    <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_getSettingLog"
+            android:layout_width="110dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="20dp"
+            android:background="@color/magenta"
+            android:foreground="?attr/selectableItemBackground"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:text="@string/get_settingslog"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_file_path" />
+
+
+    <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_getDLCarrierLog"
+            android:layout_width="110dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="20dp"
+            android:background="@color/magenta"
+            android:foreground="?attr/selectableItemBackground"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:text="@string/get_dlcarrierlog"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            app:layout_constraintLeft_toRightOf="@+id/btn_getSettingLog"
+            app:layout_constraintTop_toBottomOf="@+id/tv_file_path" />
+
+    <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_networkLog"
+            android:layout_width="110dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="20dp"
+            android:background="@color/magenta"
+            android:foreground="?attr/selectableItemBackground"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:text="@string/get_networklog"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            app:layout_constraintLeft_toRightOf="@+id/btn_getDLCarrierLog"
+            app:layout_constraintTop_toBottomOf="@+id/tv_file_path" />
+
+    <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_ULCarrierLog"
+            android:layout_width="110dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/magenta"
+            android:foreground="?attr/selectableItemBackground"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:text="@string/get_ulcarrierlog"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textCursorDrawable="@null"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_getSettingLog" />
+
+    <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_rrcLog"
+            android:layout_width="110dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/magenta"
+            android:foreground="?attr/selectableItemBackground"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:text="@string/get_rrclog"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textCursorDrawable="@null"
+            app:layout_constraintBaseline_toBaselineOf="@+id/btn_UiLog"
+            app:layout_constraintLeft_toRightOf="@+id/btn_UiLog" />
+
+    <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_UiLog"
+            android:layout_width="110dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/magenta"
+            android:foreground="?attr/selectableItemBackground"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:text="@string/get_uilog"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textCursorDrawable="@null"
+            app:layout_constraintLeft_toRightOf="@+id/btn_ULCarrierLog"
+            app:layout_constraintTop_toBottomOf="@+id/btn_getDLCarrierLog" />
+
+    <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_getApiVersion"
+            android:layout_width="110dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/magenta"
+            android:foreground="?attr/selectableItemBackground"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:text="@string/get_apiversion"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_ULCarrierLog" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/et_logs"
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            android:layout_margin="20dp"
+            android:background="@drawable/module_grid_bg"
+            android:fadeScrollbars="false"
+            android:gravity="top|start"
+            android:inputType="textMultiLine"
+            android:isScrollContainer="true"
+            android:scrollbarAlwaysDrawVerticalTrack="true"
+            android:scrollbarStyle="insideInset"
+            android:scrollbars="vertical"
+            android:textColor="@color/magenta"
+            android:textColorHint="@color/colorAccent"
+            android:textCursorDrawable="@null"
+            android:textSize="14sp"
+            app:layout_constraintHeight_default="percent"
+            app:layout_constraintHeight_percent="0.7"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_getApiVersion"
+            tools:layout_editor_absoluteX="0dp" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_adb_dev"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="20dp"
+            android:inputType="textMultiLine"
+            android:text="@string/adb_5gsa_dev_info_text"
+            android:textColor="@color/magenta"
+            android:textColorHint="@color/colorAccent"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_logs" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_adb_proxy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginEnd="20dp"
+            android:inputType="textMultiLine"
+            android:text="@string/adb_5gsa_proxy_info_text"
+            android:textColor="@color/magenta"
+            android:textColorHint="@color/colorAccent"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_adb_dev" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

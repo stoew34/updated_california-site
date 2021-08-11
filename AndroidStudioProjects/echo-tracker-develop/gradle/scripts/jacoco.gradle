@@ -1,0 +1,81 @@
+apply plugin: 'jacoco'
+apply plugin: 'org.sonarqube'
+
+task jacocoTestReport(type: JacocoReport, dependsOn: ['testDevDebugUnitTest', 'createDevDebugCoverageReport']) {
+    group = "Reporting"
+    description = "Generate Jacoco coverage reports"
+    reports {
+        xml.enabled = true
+        html.enabled = true
+    }
+    def fileFilter = ['**/R.class',
+                      '**/R$*.class',
+                      '**/BuildConfig.*',
+                      '**/Manifest*.*',
+                      '**/*Test*.*',
+                      'android/**/*.*',
+                      '**/*Activity.*',
+                      '**/*ViewModel.*',
+                      '**/*Adapter.*',
+                      'com/tmobile/mytmobile/echolocate/playground/**'
+    ]
+    def debugTree = fileTree(
+            // Kotlin generated classes on Android project (debug build)
+            dir: "$buildDir/tmp/kotlin-classes/devDebug",
+            excludes: fileFilter
+    ) + fileTree(
+            dir: "$buildDir/intermediates/javac/devDebug/classes",
+            excludes: fileFilter
+    )
+    def mainSrc = "src/main/java"
+    sourceDirectories.from = files([mainSrc, android.sourceSets.main.java.srcDirs])
+    classDirectories.from = files([debugTree])
+    additionalSourceDirs.from = files(debugTree)
+    executionData.from = fileTree(dir: "$project.buildDir", includes: [
+            "**/*.exec", "**/*.ec"
+    ])
+}
+
+//Shortcut to open report
+task getCoverage(type: Exec, dependsOn: 'jacocoTestReport') {
+    group = "Reporting"
+    commandLine "open", "$buildDir/reports/jacoco/jacocoTestReport/html/index.html"
+}
+
+//Shortcut to open report
+task getDefaultCoverage(type: Exec, dependsOn: 'createDevDebugCoverageReport') {
+    group = "Reporting"
+    commandLine "open", "$buildDir/reports/coverage/dev/debug/index.html"
+}
+
+project(":app").tasks["sonarqube"].dependsOn ':app:getCoverage'
+
+project(":app"){
+    sonarqube {
+        properties {
+            //property "sonar.login", "b84d5c25bc8701461d8b9f52dd90b2d7d69501c4"
+            property "sonar.login", "637bbaf997d339f3b228ec08a705f5a59e17b66d" // Key for SVC_PRD_DIA_CICD
+            property "sonar.host.url", "https://sonarqube.service.edp.t-mobile.com/"
+            property "sonar.projectName", "TMOD"
+            property "sonar.projectKey", "TMOD"
+            property "sonar.scm.disabled", true
+            property "sonar.binaries", "app/build/**"
+            property "sonar.tests", "./src/androidTest/"
+            property "sonar.import_unknown_files", true
+            property "sonar.sources", "."
+            property "sonar.java.source", "8"
+            property "sonar.inclusions", "/src/main/java/com/tmobile/mytmobile/**"
+            property "sonar.jacoco.itReportPath", fileTree(dir: project.projectDir, includes: ["**/*.ec"])
+            property "sonar.java.test.binaries", "${project.buildDir}/intermediates"
+            property "sonar.coverage.jacoco.xmlReportPaths", "$buildDir/reports/jacoco/jacocoTestReport/jacocoTestReport.xml"
+            property "sonar.junit.reportPaths", ["$buildDir/outputs/androidTest-results/connected", "$buildDir/test-results/testDebugUnitTest"]
+            property "sonar.android.lint.report", "$buildDir/reports/lint-results-debug.xml"
+            property "sonar.coverage.exclusions", ["**/com/tmobile/mytmobile/echolocate/playground/**"]
+        }
+    }
+}
+
+task echoXSonar(dependsOn: ":app:sonarqube"){
+    group = "Sonar"
+    description = "send reports to configured sonarqube"
+}

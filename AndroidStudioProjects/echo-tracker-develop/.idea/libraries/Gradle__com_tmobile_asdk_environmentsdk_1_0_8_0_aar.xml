@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Gradle: com.tmobile.asdk:environmentsdk:1.0.8.0@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/7a7f0443e26ca1bd00ccc09b7742ee6a/jetified-environmentsdk-1.0.8.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/7a7f0443e26ca1bd00ccc09b7742ee6a/jetified-environmentsdk-1.0.8.0/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/7a7f0443e26ca1bd00ccc09b7742ee6a/jetified-environmentsdk-1.0.8.0/res" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.tmobile.asdk/environmentsdk/1.0.8.0/eedb351ed562346c75f9533fbaf25ac3a5fe75fd/environmentsdk-1.0.8.0-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES />
+  </library>
+</component>

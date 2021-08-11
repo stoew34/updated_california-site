@@ -1,0 +1,407 @@
+{
+  "callSessions": [
+    {
+      "OEMSV": {
+        "SV": "",
+        "androidVersion": "9",
+        "buildName": "PPR1.180610.011",
+        "customVersion": "",
+        "radioVersion": "N960USQU1CSAA"
+      },
+      "callId": "13212357",
+      "callNumber": "+16196395998",
+      "clientVersion": "1.0.0",
+      "deviceIntents": {
+        "appTriggeredCallData": [
+          {
+            "appName": "Phone",
+            "appPackageId": "com.android.phone",
+            "appVersionCode": "28",
+            "appVersionName": "9",
+            "eventInfo": {
+              "cellInfo": {
+                "ECIO": "",
+                "LAC": "11316",
+                "RSCP": "",
+                "RSRP": "",
+                "RSRQ": "",
+                "RSSI": "",
+                "SINR": "",
+                "SNR": "",
+                "cellId": "24975117",
+                "networkBand": "",
+                "networkType": ""
+              },
+              "location": {
+                "altitude": 26.600000381469727,
+                "altitudePrecision": 0.0,
+                "latitude": 47.6137224,
+                "locationAge": 6001,
+                "longitude": -122.2009587,
+                "precision": 27.824
+              }
+            },
+            "eventTimestamp": "2019-11-12T22:09:31-0800",
+            "oemTimestamp": "2019-11-12T22:09:31-0800"
+          }
+        ],
+        "callSettingData": [
+          {
+            "WFCPreference": "CELLULARPREFERRED",
+            "WFCStatus": "WIFI_OFF",
+            "eventInfo": {
+              "cellInfo": {
+                "ECIO": "",
+                "LAC": "11316",
+                "RSCP": "",
+                "RSRP": "",
+                "RSRQ": "",
+                "RSSI": "",
+                "SINR": "",
+                "SNR": "",
+                "cellId": "24975117",
+                "networkBand": "",
+                "networkType": ""
+              },
+              "location": {
+                "altitude": 26.600000381469727,
+                "altitudePrecision": 0.0,
+                "latitude": 47.6137224,
+                "locationAge": 6278,
+                "longitude": -122.2009587,
+                "precision": 27.824
+              }
+            },
+            "eventTimestamp": "2019-11-12T22:09:32-0800",
+            "oemTimestamp": "2019-11-12T22:09:31-0800",
+            "volteStatus": "REGISTERED"
+          }
+        ],
+        "detailedCallStateData": [
+          {
+            "callCode": "NA",
+            "callState": "ATTEMPTING",
+            "eventInfo": {
+              "cellInfo": {
+                "ECIO": "NA",
+                "LAC": "11316",
+                "RSCP": "NA",
+                "RSRP": "-87",
+                "RSRQ": "-15",
+                "RSSI": "NA",
+                "SINR": "1",
+                "SNR": "NA",
+                "cellId": "24975117",
+                "networkBand": "2",
+                "networkType": "LTE"
+              },
+              "location": {
+                "altitude": 26.600000381469727,
+                "altitudePrecision": 0.0,
+                "latitude": 47.6137224,
+                "locationAge": 6308,
+                "longitude": -122.2009587,
+                "precision": 27.824
+              }
+            },
+            "eventTimestamp": "2019-11-12T22:09:31-0800",
+            "oemTimestamp": "2019-11-12T22:09:31-0800"
+          },
+          {
+            "callCode": "NA",
+            "callState": "ESTABLISHED",
+            "eventInfo": {
+              "cellInfo": {
+                "ECIO": "NA",
+                "LAC": "11316",
+                "RSCP": "NA",
+                "RSRP": "-87",
+                "RSRQ": "-15",
+                "RSSI": "NA",
+                "SINR": "1",
+                "SNR": "NA",
+                "cellId": "24975117",
+                "networkBand": "2",
+                "networkType": "LTE"
+              },
+              "location": {
+                "altitude": 26.600000381469727,
+                "altitudePrecision": 0.0,
+                "latitude": 47.6137224,
+                "locationAge": 8712,
+                "longitude": -122.2009587,
+                "precision": 27.824
+              }
+            },
+            "eventTimestamp": "2019-11-12T22:09:34-0800",
+            "oemTimestamp": "2019-11-12T22:09:34-0800"
+          },
+          {
+            "callCode": "NA",
+            "callState": "DISCONNECTING",
+            "eventInfo": {
+              "cellInfo": {
+                "ECIO": "NA",
+                "LAC": "11316",
+                "RSCP": "NA",
+                "RSRP": "-87",
+                "RSRQ": "-15",
+                "RSSI": "NA",
+                "SINR": "1",
+                "SNR": "NA",
+                "cellId": "24975117",
+                "networkBand": "2",
+                "networkType": "LTE"
+              },
+              "location": {
+                "altitude": 26.600000381469727,
+                "altitudePrecision": 0.0,
+                "latitude": 47.6137224,
+                "locationAge": 16632,
+                "longitude": -122.2009587,
+                "precision": 27.824
+              }
+            },
+            "eventTimestamp": "2019-11-12T22:09:42-0800",
+            "oemTimestamp": "2019-11-12T22:09:42-0800"
+          },
+          {
+            "callCode": "16",
+            "callState": "ENDED",
+            "eventInfo": {
+              "cellInfo": {
+                "ECIO": "NA",
+                "LAC": "11316",
+                "RSCP": "NA",
+                "RSRP": "-87",
+                "RSRQ": "-15",
+                "RSSI": "NA",
+                "SINR": "1",
+                "SNR": "NA",
+                "cellId": "24975117",
+                "networkBand": "2",
+                "networkType": "LTE"
+              },
+              "location": {
+                "altitude": 26.600000381469727,
+                "altitudePrecision": 0.0,
+                "latitude": 47.6137224,
+                "locationAge": 16965,
+                "longitude": -122.2009587,
+                "precision": 27.824
+              }
+            },
+            "eventTimestamp": "2019-11-12T22:09:42-0800",
+            "oemTimestamp": "2019-11-12T22:09:42-0800"
+          }
+        ],
+        "imsSignallingData": [
+          {
+            "SIPCallId": "ocxVBeaZzofAihTBLRUigw..@2607:fc20:b2de:ef5e:0:14:477b:c01",
+            "SIPCseq": "CSeq: 1 INVITE",
+            "SIPLine1": "INVITE sip:+16196395998@msg.pc.t-mobile.com;user=phone SIP/2.0",
+            "SIPOrigin": "SENT",
+            "SIPReason": "NA",
+            "SIPSDP": ";\"c=IN IP6 2607:fc20:b2de:ef5e:0:14:477b:c01\";\"a=rtpmap:127 EVS/16000\";\"a=rtpmap:114 AMR-WB/16000/1\";\"a=rtpmap:113 AMR-WB/16000/1\";\"a=rtpmap:102 AMR/8000/1\";\"a=rtpmap:115 AMR/8000/1\";\"a=rtpmap:105 telephone-event/16000\";\"a=rtpmap:101 telephone-event/8000\";\"a=sendrecv\";",
+            "eventInfo": {
+              "cellInfo": {
+                "ECIO": "NA",
+                "LAC": "11316",
+                "RSCP": "-87",
+                "RSRP": "-87",
+                "RSRQ": "-15",
+                "RSSI": "NA",
+                "SINR": "1",
+                "SNR": "NA",
+                "cellId": "24975117",
+                "networkBand": "2",
+                "networkType": "LTE"
+              },
+              "location": {
+                "altitude": 26.600000381469727,
+                "altitudePrecision": 0.0,
+                "latitude": 47.6137224,
+                "locationAge": 10945,
+                "longitude": -122.2009587,
+                "precision": 27.824
+              }
+            },
+            "eventTimestamp": "2019-11-12T22:09:36-0800",
+            "oemTimestamp": "2019-11-12T22:09:31-0800"
+          },
+          {
+            "SIPCallId": "ocxVBeaZzofAihTBLRUigw..@2607:fc20:b2de:ef5e:0:14:477b:c01",
+            "SIPCseq": "CSeq: 1 INVITE",
+            "SIPLine1": "",
+            "SIPOrigin": "SENT",
+            "SIPReason": "NA",
+            "SIPSDP": "",
+            "eventInfo": {
+              "cellInfo": {
+                "ECIO": "NA",
+                "LAC": "11316",
+                "RSCP": "-87",
+                "RSRP": "-87",
+                "RSRQ": "-15",
+                "RSSI": "NA",
+                "SINR": "1",
+                "SNR": "NA",
+                "cellId": "24975117",
+                "networkBand": "2",
+                "networkType": "LTE"
+              },
+              "location": {
+                "altitude": 26.600000381469727,
+                "altitudePrecision": 0.0,
+                "latitude": 47.6137224,
+                "locationAge": 10945,
+                "longitude": -122.2009587,
+                "precision": 27.824
+              }
+            },
+            "eventTimestamp": "2019-11-12T22:09:36-0800",
+            "oemTimestamp": "2019-11-12T22:09:31-0800"
+          }
+        ],
+        "radioHandoverData": [],
+        "rtpdlStateData": [],
+        "uiCallStateData": [
+          {
+            "UICallState": "CALL_PRESSED",
+            "eventInfo": {
+              "cellInfo": {
+                "ECIO": "NA",
+                "LAC": "11316",
+                "RSCP": "NA",
+                "RSRP": "-87",
+                "RSRQ": "-15",
+                "RSSI": "NA",
+                "SINR": "1",
+                "SNR": "NA",
+                "cellId": "24975117",
+                "networkBand": "2",
+                "networkType": "LTE"
+              },
+              "location": {
+                "altitude": 26.600000381469727,
+                "altitudePrecision": 0.0,
+                "latitude": 47.6137224,
+                "locationAge": 5956,
+                "longitude": -122.2009587,
+                "precision": 27.824
+              }
+            },
+            "eventTimestamp": "2019-11-12T22:09:31-0800",
+            "oemTimestamp": "2019-11-12T22:09:31-0800"
+          },
+          {
+            "UICallState": "SCREEN_ON",
+            "eventInfo": {
+              "cellInfo": {
+                "ECIO": "NA",
+                "LAC": "11316",
+                "RSCP": "NA",
+                "RSRP": "-87",
+                "RSRQ": "-15",
+                "RSSI": "NA",
+                "SINR": "1",
+                "SNR": "NA",
+                "cellId": "24975117",
+                "networkBand": "2",
+                "networkType": "LTE"
+              },
+              "location": {
+                "altitude": 26.600000381469727,
+                "altitudePrecision": 0.0,
+                "latitude": 47.6137224,
+                "locationAge": 6366,
+                "longitude": -122.2009587,
+                "precision": 27.824
+              }
+            },
+            "eventTimestamp": "2019-11-12T22:09:32-0800",
+            "oemTimestamp": "2019-11-12T22:09:32-0800"
+          },
+          {
+            "UICallState": "END_PRESSED",
+            "eventInfo": {
+              "cellInfo": {
+                "ECIO": "NA",
+                "LAC": "11316",
+                "RSCP": "NA",
+                "RSRP": "-87",
+                "RSRQ": "-15",
+                "RSSI": "NA",
+                "SINR": "1",
+                "SNR": "NA",
+                "cellId": "24975117",
+                "networkBand": "2",
+                "networkType": "LTE"
+              },
+              "location": {
+                "altitude": 26.600000381469727,
+                "altitudePrecision": 0.0,
+                "latitude": 47.6137224,
+                "locationAge": 16470,
+                "longitude": -122.2009587,
+                "precision": 27.824
+              }
+            },
+            "eventTimestamp": "2019-11-12T22:09:42-0800",
+            "oemTimestamp": "2019-11-12T22:09:42-0800"
+          },
+          {
+            "UICallState": "CALL_DISCONNECTED",
+            "eventInfo": {
+              "cellInfo": {
+                "ECIO": "NA",
+                "LAC": "11316",
+                "RSCP": "NA",
+                "RSRP": "-87",
+                "RSRQ": "-15",
+                "RSSI": "NA",
+                "SINR": "1",
+                "SNR": "NA",
+                "cellId": "24975117",
+                "networkBand": "2",
+                "networkType": "LTE"
+              },
+              "location": {
+                "altitude": 26.600000381469727,
+                "altitudePrecision": 0.0,
+                "latitude": 47.6137224,
+                "locationAge": 16799,
+                "longitude": -122.2009587,
+                "precision": 27.824
+              }
+            },
+            "eventTimestamp": "2019-11-12T22:09:42-0800",
+            "oemTimestamp": "2019-11-12T22:09:42-0800"
+          }
+        ]
+      },
+      "networkIdentity": {
+        "MCC": "310",
+        "MNC": "260"
+      }
+    }
+  ],
+  "deviceInfo": {
+    "IMEI": "356568090022498",
+    "IMSI": "310260233079728",
+    "MSISDN": "12064037312",
+    "UUID": "ebcbfcc8-03bd-4fd9-96a1-c8da8de9ef90",
+    "testSessionID": "3d53455d-82f5-4c90-b8f0-831a79e383e1"
+  },
+  "location": {
+    "altitude": 23.899999618530273,
+    "altitudePrecision": 0.0,
+    "latitude": 47.6137264,
+    "locationAge": 13787,
+    "longitude": -122.2009865,
+    "precision": 27.275,
+    "timestamp": "2019-11-12T22:10:02-0800"
+  },
+  "numDiscardedIntents": 0,
+  "schemaVersion": "1"
+}

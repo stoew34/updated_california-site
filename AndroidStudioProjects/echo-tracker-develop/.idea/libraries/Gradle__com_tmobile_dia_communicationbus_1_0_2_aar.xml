@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.tmobile.dia:communicationbus:1.0.2@aar">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/dc36266d5a8f4a7a246982e2757aec58/jetified-communicationbus-1.0.2/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/0e77840abb2c34814531f65c6ff812a8/jetified-communicationbus-1.0.2/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/0e77840abb2c34814531f65c6ff812a8/jetified-communicationbus-1.0.2/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/0e77840abb2c34814531f65c6ff812a8/jetified-communicationbus-1.0.2/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

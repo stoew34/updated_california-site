@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Gradle: androidx.work:work-rxjava2:2.3.4@aar">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/789a93e2d9a0ce12caa3591c4c5ad752/work-rxjava2-2.3.4/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a5ef482d5f3f6725151b856604775557/work-rxjava2-2.3.4/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a5ef482d5f3f6725151b856604775557/work-rxjava2-2.3.4/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a5ef482d5f3f6725151b856604775557/work-rxjava2-2.3.4/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.work/work-rxjava2/2.3.4/7cfe06c337e5336ff3c2bde59b5241d171034fde/work-rxjava2-2.3.4-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,206 @@
+{
+  "panicMode": false,
+  "customPanicMode": {
+    "isEnabled": false,
+    "blacklistedOEM": [
+      ""
+    ],
+    "blacklistedTAC": [
+      ""
+    ]
+  },
+  "configuration": {
+    "configurationVersion": 6,
+    "checkInInterval": 24
+  },
+  "autoUpdate": {
+    "mandatory": true,
+    "a": "",
+    "b": "",
+    "c": "",
+    "fingerprintHash": "",
+    "sourceUrl": "",
+    "appVersion": "",
+    "androidOsVersion": [
+      "25",
+      "26",
+      "27",
+      "28"
+    ],
+    "connectionType": ""
+  },
+  "heartbeat": {
+    "isEnabled": true,
+    "triggerInterval": 24,
+    "dbFlushInterval": 168
+  },
+  "dsdkHandshake": {
+    "isEnabled": false,
+    "featureSupportedTMOAppVersion": "",
+    "blacklistedTmoAppVersion": "",
+    "dsdkVoiceEligibility": {
+      "voiceStopDataCollection": false,
+      "blacklistedTAC": [
+      ]
+    },
+    "dsdkLteEligibility": {
+      "lteStopDataCollection": false,
+      "blacklistedTAC": [
+        35815909,
+        35578909
+      ]
+    },
+    "dsdkNr5gEligibility": {
+      "nr5gStopDataCollection": false,
+      "blacklistedTAC": [
+      ]
+    }
+  },
+  "report": {
+    "isEnabled": true,
+    "reportingInterval": 23,
+    "retentionInterval": 720,
+    "numRetries": 3,
+    "retentionSize": 10
+  },
+  "analytics": {
+    "isEnabled": true,
+    "numEventsBundled": 100
+  },
+  "voice": {
+    "isEnabled": true,
+    "samplingInterval": 3,
+    "blacklistedTMOAppVersion": "",
+    "blacklistedTAC": [
+      ""
+    ]
+  },
+  "nr5g": {
+    "isEnabled": true,
+    "samplingInterval": 3,
+    "reportingInterval": 0,
+    "appTriggerLimit": 1200,
+    "screenTriggerLimit": 200,
+    "blacklistedTMOAppVersion": "",
+    "blacklistedTAC": [
+      ""
+    ],
+    "excludePackages": [
+      "com.sec.android.app.launcher",
+      "com.android.systemui",
+      "com.lge.launcher3"
+    ],
+    "whitelistedPackages": [
+    ],
+    "triggerControl": {
+      "triggerPeriodic10s": true,
+      "triggerPeriodic20s": true,
+      "triggerPeriodic30s": true,
+      "triggerScreenON": true,
+      "triggerHourly": true,
+      "triggerAllApps": true
+    }
+  },
+  "sa5g": {
+    "isEnabled": true,
+    "samplingInterval": 3,
+    "reportingInterval": 0,
+    "appTriggerLimit": 1200,
+    "screenTriggerLimit": 200,
+    "blacklistedTMOAppVersion": "",
+    "blacklistedTAC": [
+      ""
+    ],
+    "excludePackages": [
+      "com.sec.android.app.launcher",
+      "com.android.systemui",
+      "com.lge.launcher3"
+    ],
+    "whitelistedPackages": [
+    ],
+    "triggerControl": {
+      "triggerPeriodic10s": true,
+      "triggerPeriodic20s": true,
+      "triggerPeriodic30s": true,
+      "triggerScreenON": true,
+      "triggerHourly": true,
+      "triggerAllApps": true
+    }
+  },
+  "lte": {
+    "isEnabled": true,
+    "samplingInterval": 3,
+    "triggerLimit": 600,
+    "blacklistedTMOAppVersion": "",
+    "blacklistedTAC": [
+      ""
+    ],
+    "packages_enabled": [
+      "com.google.android.youtube",
+      "com.netflix.mediaclient",
+      "com.facebook.katana",
+      "com.instagram.android",
+      "org.zwanoo.android.speedtest",
+      "com.google.android.apps.youtube.unplugged"
+    ],
+    "youtubeRegex": {
+      "regexStartStreaming": [
+        ".*Pinging https://s.youtube.com/api/stats/playback.*docid=.*",
+        ".*([Yy]ou[Tt]ube|[Cc]si[Aa]ction).*ps_s.*"
+      ],
+      "regexEndStreaming": [
+        ".*Pinging https://s.youtube.com/api/stats/qoe.*"
+      ]
+    },
+    "netflixRegex": {
+      "regexStartStreaming": [
+        ".*Focus entered window.*com\\.netflix\\.mediaclient/com\\.netflix\\.mediaclient\\.ui\\.player\\.PlayerActivity.*|.*MediaSessionService.*button.*changed.*NetflixMediaSession.*"
+      ],
+      "regexEndStreaming": [
+        ".*Focus left window.*com\\.netflix\\.mediaclient/.*|.*MediaSessionService.*button.*changed.*null.*"
+      ]
+    },
+    "speedtestRegex": {
+      "regexReadyToTest": [
+        ".*SpeedTestDebug.*BeginTestButton.*|.*SpeedTestHandler.*state.*new:\\sENGINE_READY.*old:\\sPREPARING_ENGINE.*",
+        ".*SpeedTestDebug.*BeginTestButton.*|.*UserSuiteEngine.*state.*update.*new:.+SERVER_READY.*old:.+IDLE.*"
+      ],
+      "regexStart": [
+        ".*SpeedTestDebug.*sLatency.*|.*UserSuiteEngine.*state.*update.*new:.+LATENCY_TRANSITION_COMPLETED.*"
+      ],
+      "regexDownload": [
+        ".*SpeedTestDebug.*onDownload.*|.*UserSuiteEngine.*state.*update.*new:.+DOWNLOAD_TRANSITION_COMPLETED.*"
+      ],
+      "regexUpload": [
+        ".*SpeedTestDebug.*onUpload.*|.*UserSuiteEngine.*state.*update.*new:.+UPLOAD_TRANSITION_COMPLETED.*"
+      ],
+      "regexEnd": [
+        ".*SpeedTestDebug.*onBeforeResult.*|.*UserSuiteEngine.*state.*update.*new:.+SUITE_COMPLETED.*"
+      ]
+    }
+  },
+  "coverage": {
+    "isEnabled": false,
+    "samplingInterval": 3,
+    "screenTrigger": {
+      "enabled": true,
+      "eventsPerHour": 1
+    },
+    "voiceCallStart": {
+      "enabled": true,
+      "eventsPerHour": 100
+    },
+    "voiceCallEnd": {
+      "enabled": true,
+      "eventsPerHour": 100
+    },
+    "dataSessionStart": {
+      "enabled": true,
+      "eventsPerHour": 100
+    },
+    "dataSessionEnd": {
+      "enabled": true,
+      "eventsPerHour": 100
+    }
+  }
+}

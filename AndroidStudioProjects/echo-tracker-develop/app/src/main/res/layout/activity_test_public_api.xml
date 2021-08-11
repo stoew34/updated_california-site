@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".playground.activities.HomeActivity">
+
+    <GridView
+        android:id="@+id/public_api_grid_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.6"
+        android:layout_margin="10dp"
+        android:columnWidth="90dp"
+        android:gravity="center"
+        android:horizontalSpacing="10dp"
+        android:numColumns="2"
+        android:verticalSpacing="10dp">
+
+    </GridView>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.37"
+        android:layout_margin="16dp"
+        android:padding="8dp"
+        android:background="@drawable/module_grid_bg" >
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txt_api_result"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_marginTop="20dp"
+            android:fadeScrollbars="false"
+            android:gravity="top|start"
+            android:isScrollContainer="true"
+            android:scrollbarAlwaysDrawVerticalTrack="true"
+            android:scrollbarStyle="insideInset"
+            android:scrollbars="vertical"
+            android:textColor="@color/magenta"
+            android:textColorHint="@color/colorAccent"
+            android:textCursorDrawable="@null"
+            android:textSize="14sp" />
+    </ScrollView>
+
+</LinearLayout>

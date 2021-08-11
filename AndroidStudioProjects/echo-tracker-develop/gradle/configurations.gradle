@@ -1,0 +1,173 @@
+//Please reference this tutorial when reading and using this gradle configuration file
+//https://medium.com/mindorks/manage-your-android-project-gradle-89f3b58f64b7
+
+ext {
+    VERSION_MAJOR = 7
+    VERSION_MINOR = 4
+    VERSION_PATCH = 18
+    OEM_VERSION_MAJOR = VERSION_MAJOR + 100
+    DOLPHIN_VERSION_MAJOR = OEM_VERSION_MAJOR + 100
+//    kotlin = "1.3.72"
+//    kotlin_serialize = "0.20.0"
+    rxjava2 = "2.2.6"
+    rx_android = "2.1.1"
+//    room = "2.2.5"
+    espresso_core = "3.2.0"
+    junit = "4.13"
+    test_runner = "1.2.0"
+    test_core = "1.2.0"
+    jacoco = "0.8.3"
+    mockito = "1.6.0"
+    mockito_kotlin = "2.2.0"
+    mockito_inline = "3.3.3"
+    gradle = "3.4.1"
+    constraint = "1.1.3"
+    appcompat = "1.1.0"
+    min_sdk = 26
+    target_sdk = 30
+    versionName = "${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}"
+    versionNameOem = "${OEM_VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}"
+    versionNameDolphin = "${DOLPHIN_VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}"
+    workManager = "2.3.4"
+    conCurrentFutures = "1.1.0-rc01"
+    versionCode = VERSION_MAJOR * 10000 + VERSION_MINOR * 100 + VERSION_PATCH
+    versionCodeOem = OEM_VERSION_MAJOR * 10000 + VERSION_MINOR * 100 + VERSION_PATCH
+    versionCodeDolphin = DOLPHIN_VERSION_MAJOR * 10000 + VERSION_MINOR * 100 + VERSION_PATCH
+    testIo = "3.4.2"
+    androidTestRules = "1.0.2"
+    androidxJunit = "1.1.1"
+    androidxBenchmark = "1.0.0-alpha02"
+    xrules = "1.2.0"
+    osslicenses = '17.0.0'
+    gsonVersion = '2.8.6'
+    androidcommon = '1.14.5'
+    gson_extras = '0.2.2'
+    datSdkVersion = '1.0.8.0'
+    guavaVersion = "29.0-android"
+    extJunit = '1.1.1'
+    mockk = '1.9.3'
+    firebaseVersion = '17.6.0'
+    crashlyticsVersion = '17.2.2'
+    popsigning = "2.0.0.27"
+    stethoVersion = "1.5.1"
+    communicationBusVersion = '1.0.2'
+    configurationVersion = '1.0.12'
+    schedulerVersion = '1.0.2'
+    recyclerViewVersion = "1.1.0"
+    autoupdatesdkVersion = "1.0.4"
+    heartbeatsdkVersion = "2.0.8"
+    leakcanaryDebugVersion = "2.7"
+    locationVersion = '1.0.3'
+    standarddatablocksVersion = '1.0.0'
+    networkVersion = '1.0.6'
+//    reportingVersion = '1.0.3'
+
+    support = [
+            constraint: "androidx.constraintlayout:constraintlayout:$constraint",
+            appcompat : "androidx.appcompat:appcompat:$appcompat",
+    ]
+
+    kotlin = [
+//            stdlib   : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin",
+//            test     : "org.jetbrains.kotlin:kotlin-test-junit:$kotlin",
+//            reflect  : "org.jetbrains.kotlin:kotlin-reflect:$kotlin",
+//            serialize: "org.jetbrains.kotlinx:kotlinx-serialization-runtime:$kotlin_serialize"
+    ]
+
+
+    rxjava2 = [
+            runtime   : "io.reactivex.rxjava2:rxjava:$rxjava2",
+//            room      : "androidx.room:room-rxjava2:$room",
+            work      : "androidx.work:work-rxjava2:$workManager",
+            rx_android: "io.reactivex.rxjava2:rxandroid:$rx_android",
+    ]
+
+
+    room = [
+//            runtime : "androidx.room:room-runtime:$room",
+//            compiler: "androidx.room:room-compiler:$room",
+//            ktx     : "androidx.room:room-ktx:$room",
+//            testing : "androidx.room:room-testing:$room",
+    ]
+
+    work = [
+            ktx    : "androidx.work:work-runtime-ktx:$workManager",
+            testing: "androidx.work:work-testing:$workManager"
+    ]
+
+    playServices = [
+            osslicenses: "com.google.android.gms:play-services-oss-licenses:$osslicenses"
+    ]
+
+    concurrent = [
+            futures: "androidx.concurrent:concurrent-futures-ktx:$conCurrentFutures"
+    ]
+
+    gson = [
+            serialize: "com.google.code.gson:gson:$gsonVersion",
+    ]
+
+    tests = [
+            junit     : "junit:junit:$junit",
+            espresso  : "androidx.test.espresso:espresso-core:$espresso_core",
+            runner    : "androidx.test:runner:$test_runner",
+            core      : "androidx.test:core:$test_core",
+            io        : "io.kotlintest:kotlintest-runner-junit5:$testIo",
+            rules     : "com.android.support.test:rules:$androidTestRules",
+            xunit     : "androidx.test.ext:junit:$androidxJunit",
+            xbenchmark: "androidx.benchmark:benchmark:$androidxBenchmark",
+            xrules    : "androidx.test:rules:$xrules",
+            junit4    : "androidx.test.ext:junit:$extJunit",
+            mockk     : "io.mockk:mockk-android:$mockk",
+
+    ]
+
+    mockito = [
+            kotlin: "com.nhaarman.mockitokotlin2:mockito-kotlin:$mockito_kotlin",
+            inline: "org.mockito:mockito-inline:$mockito_inline",
+    ]
+
+    log = [
+            androidcommon: "com.tmobile.pr.androidcommon:androidcommon-release:$androidcommon"
+    ]
+
+    gsonextras = [
+            gson_extras: "org.danilopianini:gson-extras:$gson_extras"
+    ]
+
+    asdk = [
+            datsdk: "com.tmobile.asdk:datsdk:$datSdkVersion",
+    ]
+
+    autoupdatesdk = "com.tmobile.dia:autoupdatesdk:$autoupdatesdkVersion"
+    autoupdatedebugsdk = "com.tmobile.dia:autoupdatesdk-debug:$autoupdatesdkVersion"
+
+    heartbeatsdk = "com.tmobile.dia:heartbeatsdk-release:$heartbeatsdkVersion"
+
+    leakcanary = [
+            debug: "com.squareup.leakcanary:leakcanary-android:$leakcanaryDebugVersion"
+    ]
+
+    guava = "com.google.guava:guava:$guavaVersion"
+    stetho = "com.facebook.stetho:stetho:$stethoVersion"
+
+    firebase = [
+            //fabric is replaced with firebase now
+            crashlytics: "com.google.firebase:firebase-crashlytics-ktx:$crashlyticsVersion",
+            firebase: "com.google.firebase:firebase-analytics-ktx:$firebaseVersion"
+    ]
+
+    recycler = [
+            recyclerview: "androidx.recyclerview:recyclerview:$recyclerViewVersion"
+    ]
+
+    datacollectionsdks = [
+            configuration: "com.tmobile.dia:configuration:$configurationVersion",
+            communicationbus: "com.tmobile.dia:communicationbus:$communicationBusVersion",
+            scheduler: "com.tmobile.dia:scheduler:$schedulerVersion",
+            location: "com.tmobile.dia:location:$locationVersion",
+            standarddatablocks: "com.tmobile.dia:standarddatablocks:$standarddatablocksVersion",
+            network: "com.tmobile.dia:network:$networkVersion" //,
+//            reporting: "com.tmobile.dia:reporting:$reportingVersion"
+            ]
+}

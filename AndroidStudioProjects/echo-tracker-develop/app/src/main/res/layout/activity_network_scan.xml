@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".playground.activities.HomeActivity">
+
+    <TextView
+        android:id="@+id/label_Net_Tech"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Network Technology : "
+        app:layout_constraintBottom_toBottomOf="@id/spinner_net_tech"
+        app:layout_constraintEnd_toStartOf="@id/spinner_net_tech"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/spinner_net_tech"
+        tools:ignore="HardcodedText" />
+
+    <androidx.appcompat.widget.AppCompatSpinner
+        android:id="@+id/spinner_net_tech"
+        android:layout_width="120dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/label_Net_Tech"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/label_band"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Network Band : "
+        app:layout_constraintBottom_toBottomOf="@id/spinner_band"
+        app:layout_constraintEnd_toStartOf="@id/spinner_band"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/spinner_band"
+        tools:ignore="HardcodedText" />
+
+    <androidx.appcompat.widget.AppCompatSpinner
+        android:id="@+id/spinner_band"
+        android:layout_width="160dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/label_band"
+        app:layout_constraintTop_toBottomOf="@id/spinner_net_tech" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/scanBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:onClick="initNetworkScan"
+        android:text="Scan Network"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView_result"
+        app:layout_constraintEnd_toStartOf="@id/clearBtn"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="HardcodedText,OnClick" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/clearBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="clearText"
+        android:text="Clear"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/scanBtn"
+        app:layout_constraintTop_toTopOf="@id/scanBtn"
+        tools:ignore="HardcodedText,OnClick" />
+
+    <TextView
+        android:id="@+id/selected_net_tech"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Selected Network Technology : "
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/label_band"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/selected_net_tech_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text=""
+        app:layout_constraintStart_toEndOf="@id/selected_net_tech"
+        app:layout_constraintTop_toTopOf="@id/selected_net_tech"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/selected_band"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Selected Band : "
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/selected_net_tech"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/selected_band_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text=""
+        app:layout_constraintStart_toEndOf="@id/selected_band"
+        app:layout_constraintTop_toTopOf="@id/selected_band"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Working/Tested Combination - LTE / BAND_2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/selected_band"
+        tools:ignore="HardcodedText" />
+
+    <ScrollView
+        android:id="@+id/scrollView_result"
+        android:layout_width="match_parent"
+        android:layout_height="360dp"
+        app:layout_constraintVertical_weight="1"
+        android:layout_margin="8dp"
+        android:background="@drawable/module_grid_bg"
+        android:padding="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txt_api_result"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_marginTop="20dp"
+            android:fadeScrollbars="false"
+            android:gravity="top|start"
+            android:isScrollContainer="true"
+            android:scrollbarAlwaysDrawVerticalTrack="true"
+            android:scrollbarStyle="insideInset"
+            android:scrollbars="vertical"
+            android:textColor="@color/magenta"
+            android:textColorHint="@color/colorAccent"
+            android:textCursorDrawable="@null"
+            android:textSize="14sp" />
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

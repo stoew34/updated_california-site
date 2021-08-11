@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="3">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_get_auth_token"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1"
+            android:background="@color/magenta"
+            android:onClick="getAllReports"
+            android:text="Get Auth Token"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_refresh_auth_token"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1"
+            android:background="@color/magenta"
+            android:onClick="getAllReports"
+            android:text="Refresh Auth Token"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_clear_auth_token"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1"
+            android:background="@color/magenta"
+            android:onClick="getAllReports"
+            android:text="Clear token"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white" />
+
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/auth_token"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/module_grid_bg"
+        android:fadeScrollbars="false"
+        android:gravity="top|start"
+        android:isScrollContainer="true"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
+        android:scrollbars="vertical"
+        android:text="Click on Get Token"
+        android:textColor="@color/magenta"
+        android:textColorHint="@color/colorAccent"
+        android:textCursorDrawable="@null"
+        android:textSize="14sp"
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintTop_toBottomOf="@id/btn_get_report"
+        tools:layout_editor_absoluteX="0dp" />
+
+</LinearLayout>

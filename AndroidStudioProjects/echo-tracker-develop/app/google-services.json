@@ -1,0 +1,98 @@
+{
+  "project_info": {
+    "project_number": "677281287854",
+    "firebase_url": "https://echoapp-aae8d.firebaseio.com",
+    "project_id": "echoapp-aae8d",
+    "storage_bucket": "echoapp-aae8d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:677281287854:android:3e2ee2dcbf6acd8a7b273f",
+        "android_client_info": {
+          "package_name": "com.tmobile.echolocate"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "677281287854-8r0hg07vkon245q64bokllqem1570slu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCfCMcyzRHT0D6VOqk9T7kZ4e-MmDKv70w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "677281287854-8r0hg07vkon245q64bokllqem1570slu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:677281287854:android:1872b19cdcd4a4567b273f",
+        "android_client_info": {
+          "package_name": "com.tmobile.mytmobile.echolocate"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "677281287854-8r0hg07vkon245q64bokllqem1570slu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCfCMcyzRHT0D6VOqk9T7kZ4e-MmDKv70w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "677281287854-8r0hg07vkon245q64bokllqem1570slu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:677281287854:android:6c06d4880ab1ba5d7b273f",
+        "android_client_info": {
+          "package_name": "com.tmobile.pr.mytmobile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "677281287854-8r0hg07vkon245q64bokllqem1570slu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCfCMcyzRHT0D6VOqk9T7kZ4e-MmDKv70w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "677281287854-8r0hg07vkon245q64bokllqem1570slu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.tmobile.dia:scheduler:1.0.2@aar">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/678fb51f1d66089b97b45b1a478589e6/jetified-scheduler-1.0.2/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d28f33cd261c9569bb973c44606def51/jetified-scheduler-1.0.2/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d28f33cd261c9569bb973c44606def51/jetified-scheduler-1.0.2/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d28f33cd261c9569bb973c44606def51/jetified-scheduler-1.0.2/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

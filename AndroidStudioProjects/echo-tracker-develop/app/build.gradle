@@ -1,0 +1,405 @@
+plugins {
+    id "com.google.protobuf" version "0.8.12"
+}
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlinx-serialization'
+
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'kotlin-kapt'
+
+apply from: '../gradle/configurations.gradle'
+
+def config = project.extensions.getByName("ext")
+
+apply plugin: 'jacoco'
+
+apply from: '../gradle/scripts/jacoco.gradle'
+
+apply plugin: 'org.jetbrains.dokka-android'
+
+apply plugin: 'com.google.gms.google-services'
+
+apply plugin: 'com.google.firebase.crashlytics'
+
+apply plugin: 'com.google.android.gms.oss-licenses-plugin'
+
+jacoco {
+    toolVersion = rootProject.ext.jacoco_version
+}
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+    mavenCentral()
+}
+
+android {
+    compileSdkVersion config.target_sdk
+    defaultConfig {
+        applicationId "com.tmobile.echolocate"
+        minSdkVersion config.min_sdk
+        targetSdkVersion config.target_sdk
+        versionCode config.versionCode
+        versionName computeVersionName()
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        //testInstrumentationRunner "androidx.benchmark.AndroidBenchmarkRunner"
+    }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+            zipAlignEnabled true
+        }
+
+        debug {
+            debuggable true
+            testCoverageEnabled true
+        }
+
+        staging {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+            zipAlignEnabled true
+        }
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        // Or, if you prefer, you can continue to check for errors in release builds,
+        // but continue the build even when errors are found:
+        abortOnError false
+    }
+
+    flavorDimensions "test"
+    productFlavors {
+
+        dev {
+            resValue "string", "app_name", "T-Mobile Diagnostics"
+        }
+
+        TMOProxy {
+            applicationId "com.tmobile.pr.mytmobile"
+            versionCode 999
+            resValue "string", "app_name", "EchoTMOProxyApp"
+        }
+
+        dolphin {
+            resValue "string", "app_name", "Dolphin"
+            versionCode config.versionCodeDolphin
+            versionName computeDolphinVersionName()
+        }
+
+        OEMTool {
+            versionCode config.versionCodeOem
+            versionName computeOEMToolVersionName()
+            resValue "string", "app_name", "OEM Tool"
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules_oemtool.pro'
+        }
+    }
+
+    // Change the name of the output apk with flavor name and version name.
+    applicationVariants.all { variant ->
+        variant.outputs.all {
+            def flavor = variant.name
+            def versionName = variant.versionName
+            outputFileName = "TMODiagnostics-${flavor}-${versionName}.apk"
+        }
+    }
+
+    /**
+     * We need this to output log data to the gradle console while unit tests are running
+     * it is used in conjunction  with "io.kotlintest:kotlintest-runner-junit5"
+     */
+    testOptions {
+        unitTests.all {
+            testLogging.showStandardStreams = true
+            jacoco.includeNoLocationClasses = true
+            jacoco {
+                excludes += ['jdk.internal.*']
+            }
+        }
+        unitTests.returnDefaultValues = true
+    }
+
+    compileOptions {
+        sourceCompatibility = '1.8'
+        targetCompatibility = '1.8'
+    }
+
+    kotlinOptions { jvmTarget = "1.8" }
+
+    dokka {
+        outputFormat = 'html'
+
+        outputDirectory = "${project.projectDir}/build/outputs/documentation"
+
+        // By default, sourceRoots is taken from kotlinTasks, following roots will be appended to it
+        // Short form sourceRoots
+        sourceDirs = files('src/main/java')
+
+        // Used for linking to JDK
+        jdkVersion = 14
+
+        // Use default or set to custom path to cache directory
+        // to enable package-list caching
+        // When set to default, caches stored in $USER_HOME/.cache/dokka
+        cacheRoot = 'default'
+
+        // Use to include or exclude non public members.
+        includeNonPublic = false
+
+        // Do not create index pages for empty packages
+        skipEmptyPackages = true
+
+        // Disable linking to online kotlin-stdlib documentation
+        noStdlibLink = false
+
+        // Disable linking to online JDK documentation
+        noJdkLink = false
+    }
+    useLibrary 'android.test.runner'
+
+    useLibrary 'android.test.base'
+    useLibrary 'android.test.mock'
+}
+
+dependencies {
+    implementation config.datacollectionsdks.communicationbus
+    implementation config.datacollectionsdks.configuration
+    implementation config.datacollectionsdks.scheduler
+    implementation config.datacollectionsdks.location
+    implementation config.datacollectionsdks.standarddatablocks
+    implementation config.datacollectionsdks.network
+//    implementation config.datacollectionsdks.reporting
+    implementation project(path: ':reporting')
+    implementation files('libs/pojos-1.0.4.jar')
+
+    // Android support dependencies
+    implementation config.support.appcompat
+    implementation config.support.constraint
+    // Kotlin dependencies
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.5.21'
+    implementation 'org.jetbrains.kotlin:kotlin-reflect:1.5.21'
+    implementation 'org.jetbrains.kotlinx:kotlinx-serialization-runtime:1.0-M1-1.4.0-rc'
+    // Rx dependencies
+    implementation config.rxjava2.runtime
+    implementation config.rxjava2.rx_android
+    implementation 'androidx.room:room-rxjava2:2.3.0'
+    // Work Manager dependencies
+    implementation config.work.ktx
+    implementation config.concurrent.futures
+
+    // Room database dependencies
+    implementation 'androidx.room:room-runtime:2.3.0'
+    implementation 'androidx.room:room-ktx:2.3.0'
+    implementation 'androidx.room:room-testing:2.3.0'
+
+    kapt 'androidx.room:room-compiler:2.3.0'
+//    annotationProcessor 'androidx.room:room-compiler:2.2.5'
+    //play services dependencies
+    implementation config.playServices.osslicenses
+    //gson dependencies
+    implementation config.gson.serialize
+    //logging dependencies
+    implementation config.log.androidcommon
+
+    //ASDK dependencies
+    implementation config.gsonextras.gson_extras
+    implementation config.asdk.datsdk
+    implementation config.guava
+    implementation config.firebase.crashlytics
+
+    //Stetho dependency
+    debugImplementation config.stetho
+
+    //autoupdate dependency
+    debugImplementation config.autoupdatedebugsdk
+    releaseImplementation config.autoupdatesdk
+    stagingImplementation config.autoupdatesdk
+
+    //heartbeat dependency
+    implementation config.heartbeatsdk
+
+    // LeakCanary dependency
+    debugImplementation config.leakcanary.debug
+
+    // Test dependencies
+    testImplementation config.tests.junit
+    testImplementation config.mockito.kotlin
+    testImplementation config.mockito.inline
+    testImplementation config.tests.io
+    testImplementation config.tests.runner
+    testImplementation config.tests.junit4
+    testImplementation 'org.robolectric:robolectric:4.2.1'
+    testImplementation config.work.testing
+
+    // Android instrumentation test dependencies
+    androidTestImplementation config.work.testing
+    androidTestImplementation config.tests.runner
+    androidTestImplementation config.tests.core
+    androidTestImplementation config.tests.espresso
+    androidTestImplementation config.tests.rules
+    androidTestImplementation config.tests.xunit
+    androidTestImplementation config.mockito.kotlin
+    androidTestImplementation config.mockito.inline
+    androidTestImplementation config.tests.mockk
+
+    //implementation files('libs/pojos-1.0.4.jar')
+
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+    implementation config.recycler.recyclerview
+    implementation 'com.google.android.gms:play-services-location:18.0.0'
+
+    implementation "androidx.datastore:datastore:1.0.0-rc01"
+    implementation "com.google.protobuf:protobuf-javalite:3.14.0"
+// TODO:   implementation "com.google.protobuf:protobuf-javalite:3.17.3"
+}
+
+// Tasks for gradle
+
+task getVersionCode {
+    def version = project.hasProperty('versionCode') ? versionCode.toInteger() : project.ext.android.versionCode
+    println("versionCode is set to $version")
+    return version
+}
+
+/**
+ * Check for a command line parameter passed into the build script. If no command line parameter is supplied, we default
+ * to the value defined in configurations.gradle. The goal is to make it easier to integrate with an automated
+ * build system.
+ * <p>
+ * Command line usage:
+ * <code>
+ * ./gradlew assembleDebug -PversionName=1.0.0
+ * </code>
+ * @return Return a String that represents the versionName to be used in the AndroidManifest
+ * on the final built apk.
+ */
+def computeVersionName() {
+    return appendBuildNumber(project.hasProperty('versionName') ? versionName : rootProject.ext.android.versionName)
+}
+
+def computeDolphinVersionName() {
+    return appendBuildNumber(project.hasProperty('versionNameDolphin') ? versionNameDolphin : rootProject.ext.android.versionName)
+}
+
+def computeOEMToolVersionName() {
+    return appendBuildNumber(project.hasProperty('versionNameOem') ? versionNameOem : rootProject.ext.android.versionName)
+}
+
+def appendBuildNumber(String verName) {
+    def name = verName
+
+    // Append on the build number if the property was set. -PbuildNumber=123. We are appending build number to be able to distinguish different
+    // builds on our bugfix/hotfix branches. the branch version name wont change as we fix bugs, but the build number will help distinguish one apk
+    // from another on the same branch.
+    if (project.hasProperty('buildNumber')) {
+        name = name + '.' + buildNumber
+    }
+
+    logger.debug("versionName is set to $name")
+    return name
+}
+
+/**
+ * Creates the documentation in the specified format.
+ * Check for a command line parameter passed into the build script. If no command line parameter is supplied, we default
+ * to the value as html.
+ * <p>
+ * Command line usage:
+ * <code>
+ * ./gradlew dokkaJavadoc -docFormat='javadoc'
+ * refer https://github.com/Kotlin/dokka#output_formats for available formats
+ * </code>
+ */
+task dokkaJavadoc(type: org.jetbrains.dokka.gradle.DokkaAndroidTask) {
+
+    def format = project.hasProperty('docFormat') ? docFormat : 'html'
+    outputFormat = format
+
+    outputDirectory = "${project.projectDir}/build/outputs/documentation"
+
+    // By default, sourceRoots is taken from kotlinTasks, following roots will be appended to it
+    // Short form sourceRoots
+    sourceDirs = files('src/main/java')
+
+    // Used for linking to JDK
+    jdkVersion = 8
+
+    // Use default or set to custom path to cache directory
+    // to enable package-list caching
+    // When set to default, caches stored in $USER_HOME/.cache/dokka
+    cacheRoot = 'default'
+
+    // Use to include or exclude non public members.
+    includeNonPublic = false
+
+    // Do not create index pages for empty packages
+    skipEmptyPackages = true
+
+    // Disable linking to online kotlin-stdlib documentation
+    noStdlibLink = false
+
+    // Disable linking to online JDK documentation
+    noJdkLink = false
+
+    /**
+     * Custom gradle task to list down dependencies.
+     */
+    tasks.register('taskListDependencies') {
+        def fileName = 'release-notes/echo-app-dependencies.txt'
+        delete fileTree(fileName)
+        outputs.file(fileName)
+        def dependenciesNames = ''
+        allprojects.each { p ->
+            p.configurations.all.findAll { !it.allDependencies.empty }.each { c ->
+                if (c.name == "TMOProxyDebugCompileClasspath") {
+                    c.allDependencies.each { dep ->
+                        if (dep.group != null)
+                            dependenciesNames = dependenciesNames + "\n" + "$dep.name:$dep.version"
+                        else
+                            dependenciesNames = dependenciesNames + "\n" + "$dep.name"
+                    }
+                }
+            }
+            println dependenciesNames
+        }
+        doLast {
+            project.file(fileName) << "T-Mobile Diagnostics App dependencies \n" + dependenciesNames
+        }
+    }
+
+}
+
+protobuf {
+    protoc {
+        artifact = "com.google.protobuf:protoc:3.10.0"
+    }
+
+    // Generates the java Protobuf-lite code for the Protobufs in this project. See
+    // https://github.com/google/protobuf-gradle-plugin#customizing-protobuf-compilation
+    // for more information.
+    generateProtoTasks {
+        all().each { task ->
+            task.builtins {
+                java {
+                    option 'lite'
+                }
+            }
+        }
+    }
+}

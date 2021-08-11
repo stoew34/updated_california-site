@@ -1,0 +1,252 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+
+    ext{
+//        kotlin_version = '1.3.72'
+        jacoco_version = "0.8.3"
+        dokkaVersion = "0.9.18"
+        ext.hilt_version = '2.38.1'
+    }
+
+    repositories {
+        google()
+        jcenter()
+        maven {
+            url 'https://maven.fabric.io/public'
+        }
+        
+    }
+    dependencies {
+        classpath "com.google.dagger:hilt-android-gradle-plugin:$hilt_version"
+        classpath 'com.android.tools.build:gradle:4.2.0'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.21"
+        classpath "org.jetbrains.kotlin:kotlin-serialization:1.5.21"
+        classpath "org.jacoco:org.jacoco.core:$jacoco_version"
+        classpath "org.jetbrains.dokka:dokka-android-gradle-plugin:$dokkaVersion"
+        classpath "androidx.benchmark:benchmark-gradle-plugin:1.1.0-alpha01"
+        classpath 'com.google.gms:google-services:4.3.4'
+        classpath 'com.google.firebase:firebase-crashlytics-gradle:2.4.1'
+        classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:2.7"
+        classpath 'com.google.android.gms:oss-licenses-plugin:0.10.2'
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+
+        //autoupdatesdk
+        maven {
+            url "https://gitlab.com/api/v4/projects/14620354/packages/maven"
+            credentials(HttpHeaderCredentials) {
+                name = "Private-Token"
+                value = gitLabPrivateToken
+            }
+            authentication {
+                header(HttpHeaderAuthentication)
+            }
+        }
+
+        //android commons
+        maven {
+            url "https://gitlab.com/api/v4/projects/16844657/packages/maven"
+            credentials(HttpHeaderCredentials) {
+                name = "Private-Token"
+                value = gitLabPrivateToken
+            }
+            authentication {
+                header(HttpHeaderAuthentication)
+            }
+        }
+
+        //communication bus
+        maven {
+            url "https://gitlab.com/api/v4/projects/24158871/packages/maven"
+            credentials(HttpHeaderCredentials) {
+                def jobToken = System.getenv("CI_JOB_TOKEN")
+                if (jobToken == null || jobToken.empty) {
+                    name = "Private-Token"
+                    value = gitLabPrivateToken
+                } else {
+                    name = "Job-Token"
+                    value = jobToken
+                }
+            }
+            authentication {
+                header(HttpHeaderAuthentication)
+            }
+        }
+
+        //heartbeatsdk
+        maven {
+            url "https://gitlab.com/api/v4/projects/14760126/packages/maven"
+            credentials(HttpHeaderCredentials) {
+                def jobToken = System.getenv("CI_JOB_TOKEN")
+                if (jobToken == null || jobToken.empty) {
+                    name = "Private-Token"
+                    value = gitLabPrivateToken
+                } else {
+                    name = "Job-Token"
+                    value = jobToken
+                }
+            }
+            authentication {
+                header(HttpHeaderAuthentication)
+            }
+        }
+
+        //scheduler
+        maven {
+            url "https://gitlab.com/api/v4/projects/23455160/packages/maven"
+            credentials(HttpHeaderCredentials) {
+                def jobToken = System.getenv("CI_JOB_TOKEN")
+                if (jobToken == null || jobToken.empty) {
+                    name = "Private-Token"
+                    value = gitLabPrivateToken
+                } else {
+                    name = "Job-Token"
+                    value = jobToken
+                }
+            }
+            authentication {
+                header(HttpHeaderAuthentication)
+            }
+        }
+
+        //configuration
+        maven {
+            url "https://gitlab.com/api/v4/projects/24160248/packages/maven"
+            credentials(HttpHeaderCredentials) {
+                def jobToken = System.getenv("CI_JOB_TOKEN")
+                if (jobToken == null || jobToken.empty) {
+                    name = "Private-Token"
+                    value = gitLabPrivateToken
+                } else {
+                    name = "Job-Token"
+                    value = jobToken
+                }
+            }
+            authentication {
+                header(HttpHeaderAuthentication)
+            }
+        }
+
+        //location
+        maven {
+            url "https://gitlab.com/api/v4/projects/24712436/packages/maven"
+            credentials(HttpHeaderCredentials) {
+                def jobToken = System.getenv("CI_JOB_TOKEN")
+                if (jobToken == null || jobToken.empty) {
+                    name = "Private-Token"
+                    value = gitLabPrivateToken
+                } else {
+                    name = "Job-Token"
+                    value = jobToken
+                }
+            }
+            authentication {
+                header(HttpHeaderAuthentication)
+            }
+        }
+
+        //SDB
+        maven {
+            url "https://gitlab.com/api/v4/projects/25717809/packages/maven"
+            credentials(HttpHeaderCredentials) {
+                def jobToken = System.getenv("CI_JOB_TOKEN")
+                if (jobToken == null || jobToken.empty) {
+                    name = "Private-Token"
+                    value = gitLabPrivateToken
+                } else {
+                    name = "Job-Token"
+                    value = jobToken
+                }
+            }
+            authentication {
+                header(HttpHeaderAuthentication)
+            }
+        }
+
+//        //Reporting
+//        maven {
+//            url "https://gitlab.com/api/v4/projects/26464306/packages/maven"
+//            credentials(HttpHeaderCredentials) {
+//                def jobToken = System.getenv("CI_JOB_TOKEN")
+//                if (jobToken == null || jobToken.empty) {
+//                    name = "Private-Token"
+//                    value = gitLabPrivateToken
+//                } else {
+//                    name = "Job-Token"
+//                    value = jobToken
+//                }
+//            }
+//            authentication {
+//                header(HttpHeaderAuthentication)
+//            }
+//        }
+//
+        //Network
+        maven {
+            url "https://gitlab.com/api/v4/projects/26070921/packages/maven"
+            credentials(HttpHeaderCredentials) {
+                def jobToken = System.getenv("CI_JOB_TOKEN")
+                if (jobToken == null || jobToken.empty) {
+                    name = "Private-Token"
+                    value = gitLabPrivateToken
+                } else {
+                    name = "Job-Token"
+                    value = jobToken
+                }
+            }
+            authentication {
+                header(HttpHeaderAuthentication)
+            }
+        }
+
+        // asdk
+        // For more info on setup: https://gitlab.com/tmobile/secureid/android-asdk/asdk-rewrite/-/blob/tmo/master/README.md
+        maven {
+            url "https://gitlab.com/api/v4/projects/18671533/packages/maven"
+            name "GitLab"
+            credentials(HttpHeaderCredentials) {
+                def jobToken = System.getenv("CI_JOB_TOKEN")
+                if (jobToken == null || jobToken.empty) {
+                    name = "Private-Token"
+                    value = gitLabPrivateToken
+                } else {
+                    name = "Job-Token"
+                    value = jobToken
+                }
+            }
+            authentication {
+                header(HttpHeaderAuthentication)
+            }
+        }
+        // SHAPE
+        // For more info on setup: https://gitlab.com/tmobile/secureid/android-asdk/apiguardlibrary/-/blob/tmo/main/README.md
+        maven {
+            url "https://gitlab.com/api/v4/projects/23648152/packages/maven"
+            credentials(HttpHeaderCredentials) {
+                def jobToken = System.getenv("CI_JOB_TOKEN")
+                if (jobToken == null || jobToken.empty) {
+                    name = "Private-Token"
+                    value = gitLabPrivateToken
+                } else {
+                    name = "Job-Token"
+                    value = jobToken
+                }
+            }
+            authentication {
+                header(HttpHeaderAuthentication)
+            }
+        }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

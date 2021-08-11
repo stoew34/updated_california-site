@@ -1,0 +1,190 @@
+{
+  "trigger": 100,
+  "triggerTimestamp": "2018-05-14T08:54:52.287-0700",
+  "oemApiVersion": "1",
+  "schemaVersion": "1.0.0",
+  "OEMSV": {
+    "SV": "01",
+    "androidVersion": "",
+    "buildName": "",
+    "customVersion": "",
+    "radioVersion": ""
+  },
+  "bearerConfiguration": {
+    "bearer": [
+      {
+        "APNName": "fast.t-mobile.com",
+        "QCI": 6
+      },
+      {
+        "APNName": "ims",
+        "QCI": 5
+      },
+      {
+        "APNName": "-999",
+        "QCI": -999
+      }
+    ],
+    "networkType": "1",
+    "numberOfBearers": "",
+    "oemTimestamp": "2018-05-14T08:54:53.007-0700"
+  },
+  "commonRFConfiguration": {
+    "LTEuLaa": 0,
+    "RRCState": 1,
+    "YTContentId": "",
+    "YTLink": "",
+    "antennaConfigurationRx": 4,
+    "antennaConfigurationTx": 4,
+    "networkType": "1",
+    "oemTimestamp": "2018-05-14T08:54:52.277-0700",
+    "receiverDiversity": 1,
+    "transmissionMode": 4
+  },
+  "downlinkCarrierInfo": {
+    "CA": [
+      {
+        "EARFCN": 66786,
+        "bandNumber": 66,
+        "bandWidth": 20,
+        "carrierNum": 1
+      },
+      {
+        "EARFCN": -1,
+        "bandNumber": -1,
+        "bandWidth": -1,
+        "carrierNum": 2
+      },
+      {
+        "EARFCN": -1,
+        "bandNumber": -1,
+        "bandWidth": -1,
+        "carrierNum": 3
+      }
+    ],
+    "networkType": "1",
+    "numberAggregatedChannel": 1,
+    "oemTimestamp": "2018-05-14T08:54:52.452-0700"
+  },
+  "downlinkRFConfiguration": {
+    "CA": [
+      {
+        "carrierNum": 1,
+        "layers": 1,
+        "modulation": "QPSK"
+      },
+      {
+        "carrierNum": 2,
+        "layers": -1,
+        "modulation": "-1"
+      },
+      {
+        "carrierNum": 3,
+        "layers": -1,
+        "modulation": "-1"
+      }
+    ],
+    "networkType": "1",
+    "oemTimestamp": "2018-05-14T08:54:52.619-0700"
+  },
+  "location": {
+    "altitude": -122.1650322,
+    "altitudePrecision": 20.433000564575195,
+    "latitude": 47.5778284,
+    "locationAge": 0,
+    "longitude": -122.1650322,
+    "precision": 20.433000564575195,
+    "timestamp": "2018-05-16T16:14:10.456-0700"
+  },
+  "networkIdentity": {
+    "CA": [
+      {
+        "PCI": "94",
+        "cellId": "21724162",
+        "carrierNum": 1,
+        "locationId": "a176"
+      },
+      {
+        "PCI": "-1",
+        "carrierNum": 2
+      },
+      {
+        "PCI": "-1",
+        "cellId": "-2",
+        "carrierNum": 3
+      }
+    ],
+    "MCC": "310",
+    "MNC": "260",
+    "TAC": "11334",
+    "networkType": "1",
+    "oemTimestamp": "2018-05-14T08:54:52.693-0700",
+    "wifiConnectionStatus": ""
+  },
+  "settings": {
+    "wifiCallingSetting": 2,
+    "wifiSetting": 1,
+    "mobileDataSettings": 2,
+    "networkModeSettings": 1,
+    "oemTimestamp": "2018-05-14T08:54:52.287-0700",
+    "roamingSetting": "",
+    "rtt": "",
+    "rttTranscript": "",
+    "volteSetting": 2
+  },
+  "signalCondition": {
+    "LTEULHeadroom": -2,
+    "RACHPower": -150,
+    "RSRP": -94,
+    "RSRQ": -11,
+    "RSSI": -62,
+    "SINR": 15,
+    "networkType": "",
+    "oemTimestamp": "2018-05-14T08:54:52.755-0700",
+    "secondCarrier": {
+      "RSRP": "",
+      "RSRQ": "",
+      "RSSI": "",
+      "SINR": ""
+    },
+    "thirdCarrier": {
+      "RSRP": "",
+      "RSRQ": "",
+      "RSSI": "",
+      "SINR": ""
+    }
+  },
+  "upLinkRFConfiguration": {
+    "CA": [
+      {
+        "carrierNum": 1,
+        "modulation": "-2"
+      },
+      {
+        "carrierNum": 2,
+        "modulation": "-1"
+      }
+    ],
+    "networkType": "1",
+    "oemTimestamp": "2018-05-14T08:54:52.978-0700"
+  },
+  "uplinkCarrierInfo": {
+    "CA": [
+      {
+        "EARFCN": 66786,
+        "bandNumber": 66,
+        "bandWidth": 20,
+        "carrierNum": 1
+      },
+      {
+        "EARFCN": -1,
+        "bandNumber": -1,
+        "bandWidth": -1,
+        "carrierNum": 2
+      }
+    ],
+    "networkType": "1",
+    "numberAggregateChannel": 1,
+    "oemTimestamp": "2018-05-14T08:54:52.916-0700"
+  }
+}

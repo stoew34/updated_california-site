@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.tmobile.dia:location:1.0.3@aar">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e7ee4265ece8b824c97ccd4d5630ee26/jetified-location-1.0.3/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/27bbf0d6d32140db3d0935a576c1e7b4/jetified-location-1.0.3/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/27bbf0d6d32140db3d0935a576c1e7b4/jetified-location-1.0.3/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/27bbf0d6d32140db3d0935a576c1e7b4/jetified-location-1.0.3/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

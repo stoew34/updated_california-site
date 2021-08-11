@@ -1,0 +1,127 @@
+include:
+  - project: 'tmobile/templates'
+    ref: tmo/master
+    file: '/gitlab-ci/.tmo.global.common.gitlab-ci.yml'
+  - project: 'tmobile/templates'
+    ref: tmo/master
+    file: 'gitlab-ci/.tmo.function.fortify.gitlab-ci.yml'
+  - project: 'tmobile/templates'
+    ref: tmo/master
+    file: '/gitlab-ci/.tmo.function.gradleBuild.gitlab-ci.yml'
+  - project: 'tmobile/templates'
+    ref: tmo/master
+    file: '/gitlab-ci/.tmo.function.sonar.gitlab-ci.yml'
+  - project: 'tmobile/templates'
+    ref: tmo/master
+    file: '/gitlab-ci/.tmo.function.docker.gitlab-ci.yml'
+
+workflow:
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+      when: always
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: always
+
+variables:
+  SONAR_ANALYSIS_MODE: "publish"
+  JACOCO_COVERAGE_REPORT: "yes"
+  ALLOW_SONAR_FAILURE: "true"
+
+cache:
+  # Changing cache key will drop the previous cache, so use ${CI_PROJECT_ID} which will stay consistent between jobs.
+  key: ${CI_PROJECT_ID}
+  paths:
+    - .gradle/
+
+
+stages:
+  - tmo
+  - package
+  - test
+  - quality
+  - build
+
+docker_package:
+  extends: .docker-package
+  stage: package
+  variables:
+    EXTRA_DOCKER_TAG: "$CI_REGISTRY_IMAGE/$CI_COMMIT_REF_SLUG:$CI_PIPELINE_IID"
+    DOCKER_CACHE_IMAGE: $CI_REGISTRY_IMAGE:dependencies
+    DOCKER_BUILD_ARGS: --cache-from $DOCKER_CACHE_IMAGE
+
+fortify_scan:
+  extends:
+    - .fortifyscan
+  stage: test
+
+static_analysis:
+  image: $CI_REGISTRY_IMAGE/$CI_COMMIT_REF_SLUG:$CI_PIPELINE_IID
+  extends: .gradle-build
+  stage: quality
+  rules:
+    - if: $CI_COMMIT_REF_NAME == "master"
+      when: always
+    - when: manual
+  allow_failure: true
+  script:
+    - echo "[INFO] Executing lint quality check"
+    - ./gradlew lint
+  artifacts:
+    name: "reports_${CI_PROJECT_NAME}_${CI_BUILD_REF_NAME}"
+    expire_in: 1 week
+    paths:
+      - app/build/reports/
+
+debug_apk:
+  image: $CI_REGISTRY_IMAGE/$CI_COMMIT_REF_SLUG:$CI_PIPELINE_IID
+  extends: .gradle-build
+  stage: build
+  script:
+    - echo $KEYSTORE_FILE | base64 -d > productrealization.keystore
+    - echo "[INFO] Generating debug build variant artifacts"
+    - ./gradlew clean
+    - ./gradlew --refresh-dependencies
+    - ./gradlew assembleDebug -PbuildNumber=${CI_PIPELINE_ID}-debug
+      -Pandroid.injected.signing.store.file=$(pwd)/productrealization.keystore
+      -Pandroid.injected.signing.store.password=$KEYSTORE_PASSWORD
+      -Pandroid.injected.signing.key.alias=$KEY_ALIAS
+      -Pandroid.injected.signing.key.password=$KEY_PASSWORD
+  artifacts:
+    paths:
+      - app/build/outputs/apk/
+
+staging_apk:
+  image: $CI_REGISTRY_IMAGE/$CI_COMMIT_REF_SLUG:$CI_PIPELINE_IID
+  extends: .gradle-build
+  stage: build
+  script:
+    - echo $KEYSTORE_FILE | base64 -d > productrealization.keystore
+    - echo "[INFO] Generating Staging build variant artifacts"
+    - ./gradlew --refresh-dependencies
+    - ./gradlew assembleStaging -PbuildNumber=${CI_PIPELINE_ID}-staging
+      -Pandroid.injected.signing.store.file=$(pwd)/productrealization.keystore
+      -Pandroid.injected.signing.store.password=$KEYSTORE_PASSWORD
+      -Pandroid.injected.signing.key.alias=$KEY_ALIAS
+      -Pandroid.injected.signing.key.password=$KEY_PASSWORD
+  artifacts:
+    paths:
+      - app/build/outputs/apk/
+      - app/build/outputs/mapping/
+
+release_apk:
+  image: $CI_REGISTRY_IMAGE/$CI_COMMIT_REF_SLUG:$CI_PIPELINE_IID
+  extends: .gradle-build
+  stage: build
+  script:
+    - echo $KEYSTORE_FILE | base64 -d > productrealization.keystore
+    - echo "[INFO] Generating Release build variant artifacts"
+    - ./gradlew --refresh-dependencies
+    - ./gradlew assembleRelease
+      -Pandroid.injected.signing.store.file=$(pwd)/productrealization.keystore
+      -Pandroid.injected.signing.store.password=$KEYSTORE_PASSWORD
+      -Pandroid.injected.signing.key.alias=$KEY_ALIAS
+      -Pandroid.injected.signing.key.password=$KEY_PASSWORD
+  artifacts:
+    paths:
+      - app/build/outputs/apk/
+      - app/build/outputs/mapping/

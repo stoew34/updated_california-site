@@ -1,0 +1,151 @@
+syntax = "proto3";
+
+option java_package = "com.tmobile.echolocate";
+option java_multiple_files = true;
+
+message CallSessionProto {
+  Oemsv oem = 1;
+  string callId = 2;
+  string callNumber = 3;
+  string clientVersion = 4;
+  DeviceIntents deviceIntents = 5;
+  NetworkIdentity networkIdentity = 6;
+
+  message Oemsv {
+    string androidVersion = 7;
+    string buildName = 8;
+    string customVersion = 9;
+    string radioVersion = 10;
+    string sv = 11;
+  }
+  message DeviceIntents {
+    repeated AppTriggeredCallData appTriggeredCallData = 12;
+    repeated CallSettingData callSettingData = 13;
+    CarrierConfigData carrierConfigData = 14;
+    repeated DetailedCallStateData detailedCallStateData = 15;
+    repeated EmergencyCallTimerStateData emergencyCallTimerStateData = 16;
+    repeated ImsSignallingData imsSignallingData = 17;
+    repeated RadioHandoverData radioHandoverData = 18;
+    repeated RtpdlStateData rtpdlStateData = 19;
+    repeated UiCallStateData uiCallStateData = 20;
+
+    message AppTriggeredCallData{
+      string appName = 21;
+      string appPackageId = 22;
+      string appVersionCode = 23;
+      string appVersionName = 24;
+      string oemTimestamp = 25;
+      string eventTimestamp = 26;
+      EventInfo eventInfo = 27;
+    }
+
+    message CallSettingData{
+      string volteStatus = 28;
+      string wfcStatus = 29;
+      string wfcPreference = 30;
+      string oemTimestamp = 31;
+      string eventTimestamp = 32;
+      EventInfo eventInfo = 33;
+    }
+
+    message CarrierConfigData{
+      string carrierVoiceConfig = 34;
+      string carrierVoWiFiConfig = 35;
+      repeated BandConfig bandConfig = 36;
+      string carrierConfigVersion = 37;
+      string eventTimestamp = 38;
+
+      message BandConfig{
+        string key = 39;
+        string value = 40;
+      }
+    }
+
+    message DetailedCallStateData{
+      string callCode = 41;
+      string callState = 42;
+      string oemTimestamp = 43;
+      string eventTimestamp = 44;
+      EventInfo eventInfo = 45;
+    }
+
+    message EmergencyCallTimerStateData{
+      string timerName = 46;
+      string timerState = 47;
+      string eventTimestamp = 48;
+      string oemTimestamp = 49;
+      EventInfo eventInfo = 50;
+    }
+
+    message ImsSignallingData{
+      string sipCallId = 51;
+      string sipCseq = 52;
+      string sipLine1 = 53;
+      string sipOrigin = 54;
+      string sipReason = 55;
+      string sipSDP = 56;
+      string oemTimestamp = 57;
+      string eventTimestamp = 58;
+      EventInfo eventInfo = 59;
+    }
+
+    message RadioHandoverData{
+      string handoverState = 60;
+      string oemTimestamp = 61;
+      string eventTimestamp = 62;
+      EventInfo eventInfo = 63;
+    }
+
+    message RtpdlStateData{
+      double delay = 64;
+      double sequence = 65;
+      double jitter = 66;
+      double lossRate = 67;
+      double measuredPeriod = 68;
+      string oemTimestamp = 69;
+      string eventTimestamp = 70;
+      EventInfo eventInfo = 71;
+    }
+
+    message UiCallStateData{
+      string uICallState = 72;
+      string oemTimestamp = 73;
+      string eventTimestamp = 74;
+      EventInfo eventInfo = 75;
+    }
+
+    message EventInfo{
+      CellInfo cellInfo = 76;
+      LocationData locationData = 77;
+
+      message CellInfo{
+        string ecio = 78;
+        string rscp = 79;
+        string rsrp = 80;
+        string rsrq = 81;
+        string rssi = 82;
+        string sinr = 83;
+        string snr = 84;
+        string lac = 85;
+        string networkBand = 86;
+        string cellId = 87;
+        string networkType = 88;
+      }
+
+      message LocationData{
+        double altitude = 89;
+        float altitudePrecision = 90;
+        double latitude = 91;
+        double longitude = 92;
+        float precision = 93;
+        int64 locationAge = 94;
+      }
+    }
+  }
+  message NetworkIdentity {
+    string mnc = 95;
+    string mcc = 96;
+  }
+}
+
+

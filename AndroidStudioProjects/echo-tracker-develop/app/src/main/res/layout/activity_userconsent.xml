@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/btnGetUserConsentFlags"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/get_user_consent_flags"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btngetUserConsentUpdates"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/get_user_consent_updates"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btnTest"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Insert Test Data"
+        android:textAllCaps="false" />
+
+    <CheckBox
+        android:id="@+id/ckDiagnosticAgreed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/diagnostics_agreed"
+
+        />
+
+    <CheckBox
+        android:id="@+id/ckIssueAssist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/issue_assist"
+
+        />
+
+    <CheckBox
+        android:id="@+id/ckOffers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/offers"
+
+        />
+
+</LinearLayout>

@@ -1,0 +1,263 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlinx-serialization'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'jacoco'
+apply from: '../gradle/scripts/jacoco.gradle'
+apply plugin: 'maven-publish'
+apply from: '../gradle/configurations.gradle'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'dagger.hilt.android.plugin'
+def config = project.extensions.getByName("ext")
+
+jacoco {
+    toolVersion = rootProject.ext.jacoco_version
+}
+repositories {
+    maven {
+        url "https://artifactory.corporate.t-mobile.com/artifactory/euiandroid-maven-release-local"
+    }
+    maven {
+        url "https://artifactory.corporate.t-mobile.com/artifactory/euiandroid-maven-snapshot-local"
+    }
+    maven {
+        url "https://artifactory.corporate.t-mobile.com/artifactory/tma-maven-release-local"
+    }
+}
+
+group = "com.tmobile.dia"
+
+android {
+    compileSdkVersion config.target_sdk
+    defaultConfig {
+        minSdkVersion config.min_sdk
+        targetSdkVersion config.target_sdk
+        versionCode config.versionCode
+        versionName config.versionName
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+        }
+
+        debug {
+            debuggable true
+            testCoverageEnabled true
+        }
+        staging{
+            minifyEnabled false
+        }
+    }
+
+    flavorDimensions "test"
+    productFlavors {
+
+        dev {
+
+        }
+
+        TMOProxy {
+
+        }
+
+        dolphin {
+
+        }
+
+        OEMTool {
+
+        }
+    }
+
+    libraryVariants.all { variant ->
+        variant.outputs.all {
+            outputFileName = "${archivesBaseName}-${variant.name}-${android.defaultConfig.versionName}.aar"
+        }
+    }
+
+    /**
+     * We need this to output log data to the gradle console while unit tests are running
+     * it is used in conjunction  with "io.kotlintest:kotlintest-runner-junit5"
+     */
+    testOptions {
+        unitTests.all {
+            testLogging.showStandardStreams = true
+            jacoco.includeNoLocationClasses = true
+            jacoco {
+                excludes += ['jdk.internal.*']
+            }
+        }
+        unitTests.returnDefaultValues = true
+    }
+
+    compileOptions {
+        sourceCompatibility = '1.8'
+        targetCompatibility = '1.8'
+    }
+
+    kotlinOptions { jvmTarget = "1.8" }
+
+    useLibrary 'android.test.runner'
+    useLibrary 'android.test.base'
+    useLibrary 'android.test.mock'
+}
+
+publishing {
+    publications {
+        android.libraryVariants.all { variant ->
+            def buildType = variant.buildType.name
+            def groupID = group
+
+            "reporting-$buildType"(MavenPublication) {
+                artifact "$projectDir/build/outputs/aar/reporting-${buildType}-${android.defaultConfig.versionName}.aar"
+                if (buildType == "release") {
+                    artifactId "${project.name}"
+                } else {
+                    artifactId "${project.name}-${buildType}"
+                }
+                version "${android.defaultConfig.versionName}"
+                groupId "${groupID}"
+
+                // Create POM file with all the dependencies required for the library
+                pom.withXml {
+                    def dependenciesNode = asNode().appendNode('dependencies')
+
+                    // Iterate over the implementation dependencies (we don't want the test ones),
+                    // adding a <dependency> node for each
+                    configurations.implementation.allDependencies.each {
+                        // Ensure dependencies such as fileTree are not included in the pom.
+                        if (it.name != 'unspecified') {
+                            def dependencyNode = dependenciesNode.appendNode('dependency')
+                            dependencyNode.appendNode('groupId', it.group)
+                            dependencyNode.appendNode('artifactId', it.name)
+                            dependencyNode.appendNode('version', it.version)
+                        }
+                    }
+                }
+            }
+        }
+    }
+    repositories {
+        maven {
+            url "https://gitlab.com/api/v4/projects/26464306/packages/maven"
+            credentials(HttpHeaderCredentials) {
+                name = "Private-Token"
+                value = gitLabPrivateToken
+            }
+            authentication {
+                header(HttpHeaderAuthentication)
+            }
+        }
+    }
+}
+
+dependencies {
+    implementation config.datacollectionsdks.communicationbus
+    implementation config.datacollectionsdks.scheduler
+    implementation config.datacollectionsdks.network
+    implementation config.datacollectionsdks.configuration
+
+    implementation files('libs/pojos-1.0.4.jar')
+
+    // Hilt dependencies
+    implementation "com.google.dagger:hilt-android:$hilt_version"
+    testImplementation project(path: ':app')
+    testImplementation project(path: ':app')
+    kapt "com.google.dagger:hilt-compiler:$hilt_version"
+
+    // Kotlin dependencies
+    implementation config.kotlin.stdlib
+    implementation config.kotlin.reflect
+    implementation config.kotlin.serialize
+    // Rx dependencies
+    implementation config.rxjava2.runtime
+    implementation config.rxjava2.rx_android
+    implementation 'androidx.room:room-rxjava2:2.3.0'
+    // Work Manager dependencies
+    implementation config.work.ktx
+    implementation config.concurrent.futures
+
+    // Room database dependencies
+    implementation 'androidx.room:room-runtime:2.3.0'
+    implementation 'androidx.room:room-ktx:2.3.0'
+    implementation 'androidx.room:room-testing:2.3.0'
+
+    kapt 'androidx.room:room-compiler:2.3.0'
+    //gson dependencies
+    implementation config.gson.serialize
+    //logging dependencies
+    implementation config.log.androidcommon
+
+    //ASDK dependencies
+    implementation config.gsonextras.gson_extras
+    implementation config.asdk.datsdk
+    implementation config.guava
+
+    // Test dependencies
+    testImplementation config.tests.junit
+    testImplementation config.mockito.kotlin
+    testImplementation config.mockito.inline
+    testImplementation config.tests.io
+    testImplementation config.tests.runner
+    testImplementation config.tests.junit4
+    testImplementation 'org.robolectric:robolectric:4.2.1'
+    testImplementation config.work.testing
+
+    // Android instrumentation test dependencies
+    androidTestImplementation config.work.testing
+    androidTestImplementation config.tests.runner
+    androidTestImplementation config.tests.core
+    androidTestImplementation config.tests.espresso
+    androidTestImplementation config.tests.rules
+    androidTestImplementation config.tests.xunit
+    androidTestImplementation config.mockito.kotlin
+    androidTestImplementation config.mockito.inline
+    androidTestImplementation config.tests.mockk
+
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.1.0'
+
+    implementation config.recycler.recyclerview
+    implementation "androidx.datastore:datastore:1.0.0-rc01"
+}
+
+// Tasks for gradle
+
+task getVersionCode {
+    def version = project.hasProperty('versionCode') ? versionCode.toInteger() : project.ext.android.versionCode
+    println("versionCode is set to $version")
+    return version
+}
+
+/**
+ * Check for a command line parameter passed into the build script. If no command line parameter is supplied, we default
+ * to the value defined in configurations.gradle. The goal is to make it easier to integrate with an automated
+ * build system.
+ * <p>
+ * Command line usage:
+ * <code>
+ * ./gradlew assembleDebug -PversionName=1.0.0
+ * </code>
+ * @return Return a String that represents the versionName to be used in the AndroidManifest
+ * on the final built apk.
+ */
+def computeVersionName() {
+    def name = project.hasProperty('versionName') ? versionName : rootProject.ext.android.versionName
+
+    // Append on the build number if the property was set. -PbuildNumber=123. We are appending build number to be able to distinguish different
+    // builds on our bugfix/hotfix branches. the branch version name wont change as we fix bugs, but the build number will help distinguish one apk
+    // from another on the same branch.
+    if (project.hasProperty('buildNumber')) {
+        name = name + '.' + buildNumber
+    }
+
+    logger.debug("versionName is set to $name")
+    return name
+}

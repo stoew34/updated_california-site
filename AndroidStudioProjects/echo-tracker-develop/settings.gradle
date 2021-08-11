@@ -1,0 +1,5 @@
+include ':app'
+include ':reporting'
+//if( file('../location').exists() ) {
+//    includeBuild('../location')
+//}

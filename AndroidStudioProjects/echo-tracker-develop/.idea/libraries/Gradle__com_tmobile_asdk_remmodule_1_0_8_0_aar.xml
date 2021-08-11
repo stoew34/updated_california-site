@@ -1,0 +1,16 @@
+<component name="libraryTable">
+  <library name="Gradle: com.tmobile.asdk:remmodule:1.0.8.0@aar">
+    <ANNOTATIONS>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/9c9bd273d7065a06f5c94a0dae6b5377/jetified-remmodule-1.0.8.0/annotations.zip!/" />
+    </ANNOTATIONS>
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/9c9bd273d7065a06f5c94a0dae6b5377/jetified-remmodule-1.0.8.0/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/9c9bd273d7065a06f5c94a0dae6b5377/jetified-remmodule-1.0.8.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/9c9bd273d7065a06f5c94a0dae6b5377/jetified-remmodule-1.0.8.0/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.tmobile.asdk/remmodule/1.0.8.0/8d2b6958e27665e8292b7cf6ca975384f7ade553/remmodule-1.0.8.0-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp">
+
+    <TextView
+        android:id="@+id/tv_show_version"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textColor="#000000"
+        android:textSize="10sp"
+        android:layout_marginBottom="12dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_data_transfer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/data_transfer_header"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBaseline_toBaselineOf="@id/btn_send_dolphin_report"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_show_version" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_send_dolphin_report"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/rounded_button"
+        android:foreground="?attr/selectableItemBackground"
+        android:minHeight="36dp"
+        android:text="@string/send"
+        android:textColor="@android:color/white"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@id/tv_data_transfer"
+        app:layout_constraintTop_toBottomOf="@id/tv_show_version" />
+
+    <TextView
+        android:id="@+id/tv_data_transfer_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="@string/data_transfer_description"
+        android:textSize="14sp"
+        app:layout_constraintTop_toBottomOf="@id/btn_send_dolphin_report" />
+
+
+    <TextView
+        android:id="@+id/tv_last_upload_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/upload_time_header"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_data_transfer_description" />
+
+    <TextView
+        android:id="@+id/tv_last_upload_time_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:visibility="gone"
+        android:text="2/10/2021 13:54:93"
+        android:textSize="14sp"
+        app:layout_constraintTop_toBottomOf="@id/tv_last_upload_time" />
+
+    <TextView
+        android:id="@+id/tv_report_queue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/report_queue_header"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBaseline_toBaselineOf="@id/btn_refresh_dolphin_report"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_last_upload_time_description" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_refresh_dolphin_report"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/rounded_button"
+        android:foreground="?attr/selectableItemBackground"
+        android:minHeight="36dp"
+        android:text="@string/refresh"
+        android:textColor="@android:color/white"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@id/tv_data_transfer"
+        app:layout_constraintTop_toBottomOf="@id/tv_last_upload_time_description" />
+
+    <TextView
+        android:id="@+id/tv_refresh_queue_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/refresh_queue_description"
+        android:textSize="14sp"
+        app:layout_constraintTop_toBottomOf="@id/btn_refresh_dolphin_report" />
+
+    <TextView
+        android:id="@+id/table_header_left"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="4dp"
+        android:text="@string/file_header"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@id/table_header_center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_refresh_queue_description"
+        app:layout_constraintWidth_percent="0.50" />
+
+    <TextView
+        android:id="@+id/table_header_center"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="2dp"
+        android:text="@string/file_status_header"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBaseline_toBaselineOf="@id/table_header_left"
+        app:layout_constraintEnd_toStartOf="@id/table_header_right"
+        app:layout_constraintStart_toEndOf="@id/table_header_left"
+        app:layout_constraintWidth_percent="0.25" />
+
+    <TextView
+        android:id="@+id/table_header_right"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="2dp"
+        android:text="@string/http_error_header"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBaseline_toBaselineOf="@id/table_header_center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/table_header_center"
+        app:layout_constraintWidth_percent="0.25" />
+
+    <View
+        android:id="@+id/divider_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/grey"
+        app:layout_constraintTop_toBottomOf="@id/table_header_left" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/list_report_queue"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/divider_horizontal"
+        tools:listitem="@layout/card_report_queue" />
+
+    <ProgressBar
+        android:id="@+id/dolphin_progress_bar"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_report"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

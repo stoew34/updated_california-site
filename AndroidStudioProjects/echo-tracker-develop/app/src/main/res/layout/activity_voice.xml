@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_generate_dummy_data_voice"
+        android:layout_width="110dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/magenta"
+        android:foreground="?attr/selectableItemBackground"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:textAllCaps="false"
+        android:onClick="generateDummyData"
+        android:text="@string/btn_generate_dummy_data_voice"
+        android:textColor="@android:color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_raw_data_process"
+        android:layout_width="110dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/magenta"
+        android:foreground="?attr/selectableItemBackground"
+        android:onClick="processRAWData"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:text="@string/btn_raw_report_voice"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        app:layout_constraintLeft_toRightOf="@+id/btn_generate_dummy_data_voice"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_generate_dia"
+        android:layout_width="110dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/magenta"
+        android:foreground="?attr/selectableItemBackground"
+        android:onClick="getAllReports"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:text="@string/btn_all_reports_voice"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        app:layout_constraintLeft_toRightOf="@+id/btn_raw_data_process"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_get_report"
+        android:layout_width="110dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/magenta"
+        android:foreground="?attr/selectableItemBackground"
+        android:onClick="getReportInDateRange"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:text="@string/btn_get_report_voice"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textCursorDrawable="@null"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_generate_dummy_data_voice" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/et_fromdate"
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/magenta"
+        android:ellipsize="start"
+        android:gravity="center_horizontal"
+        android:hint="@string/hint_to_date"
+        android:inputType="date"
+        android:textColor="@color/magenta"
+        android:textCursorDrawable="@null"
+        app:layout_constraintLeft_toRightOf="@+id/btn_get_report"
+        app:layout_constraintTop_toBottomOf="@+id/btn_raw_data_process" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/et_todate"
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/magenta"
+        android:ellipsize="start"
+        android:gravity="center_horizontal"
+        android:hint="@string/hint_from_date"
+        android:inputType="date"
+        android:textColor="@color/magenta"
+        android:textCursorDrawable="@null"
+        app:layout_constraintBaseline_toBaselineOf="@+id/et_fromdate"
+        app:layout_constraintLeft_toRightOf="@+id/et_fromdate" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/et_reports"
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:layout_margin="20dp"
+        android:background="@drawable/module_grid_bg"
+        android:fadeScrollbars="false"
+        android:gravity="top|start"
+        android:inputType="textMultiLine"
+        android:isScrollContainer="true"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
+        android:scrollbarStyle="insideInset"
+        android:scrollbars="vertical"
+        android:textColor="@color/magenta"
+        android:textColorHint="@color/colorAccent"
+        android:textCursorDrawable="@null"
+        android:textSize="14sp"
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintHeight_percent="0.7"
+        app:layout_constraintTop_toBottomOf="@id/btn_get_report"
+        tools:layout_editor_absoluteX="0dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

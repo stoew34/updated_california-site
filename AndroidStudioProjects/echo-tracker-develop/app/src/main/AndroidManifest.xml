@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.tmobile.mytmobile.echolocate">
+
+    <!-- Allows other applications to read the data for EchoApp-DSDK handshake from content provider -->
+    <permission
+        android:description="@string/provider_read_permission_description"
+        android:label="@string/provider_read_permission_label"
+        android:name="com.tmobile.echolocate.permission.READ_CONTENT_PROVIDER"
+        android:protectionLevel="signature"/>
+
+    <!-- Allows other applications to write the data for EchoApp-DSDK handshake using content provider -->
+    <permission
+        android:description="@string/provider_read_permission_description"
+        android:label="@string/provider_read_permission_label"
+        android:name="com.tmobile.echolocate.permission.WRITE_CONTENT_PROVIDER"
+        android:protectionLevel="signature"/>
+
+    <!-- Allows other applications to receive the broadcast -->
+    <permission
+        android:description="@string/permission_broadcast_intents_description"
+        android:label="@string/permission_broadcast_intents_label"
+        android:name="com.tmobile.echolocate.permission.RECEIVE_BROADCAST_INTENT"
+        android:protectionLevel="signature"/>
+
+    <uses-permission android:name="com.sec.ims.entitlementconfigservice.READ_ENTITLEMENT_CONFIG_PERMISSION"/>
+
+    <uses-permission android:name="com.sec.ims.entitlementconfigservice.WRITE_ENTITLEMENT_CONFIG_PERMISSION"/>
+
+    <!-- Allows an application to send authorized broadcast (receiver will check if broadcaster has this permission) -->
+    <uses-permission android:name="com.tmobile.echolocate.permission.RECEIVE_BROADCAST_INTENT"/>
+
+    <!-- Allows an application to read from external storage -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
+    <!--Allows an application to write to external storage. It is used by voice,LTE and 5G modules to write the reports data to the storage in debug mode-->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+    <!--Allows an app to access approximate location. It is used by the location module to access location-->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+
+    <!-- Allows an app to access precise location.-->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+
+    <!-- Allows an app to access location while app is background. -->
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/>
+
+    <!--Allows applications to access information about Wi-Fi networks. It is used by 5g module to get state of wifi-->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+
+    <!-- Allows applications to open network sockets. It is used by the network module to make server calls-->
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <!-- Allows external apps to read the consent flags from TMO App. It is used by the diagnostics consent module -->
+    <uses-permission android:name="com.tmobile.pr.mytmobile.permission.READ_CONTENT_PROVIDER"/>
+
+    <!-- Allows external apps to receive broadcast intent from TMO App. It is used by the diagnostics consent module -->
+    <uses-permission android:name="com.tmobile.pr.mytmobile.permission.RECEIVE_BROADCAST_INTENT"/>
+
+    <!-- Allows read only access to phone state, including the phone number of the device, current cellular network information, the status of any ongoing calls, and a list of any PhoneAccounts registered on the device. It is used by voice modules. -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_NUMBERS" />
+
+    <!--Required this permission to get IMEI on Android Q to grant permission only to system apps. -->
+    <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE"
+        tools:ignore="ProtectedPermissions" />
+
+    <!--Allows applications to access information about networks. It is used by the voice module. -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!--Required by LTE module to read values from Data Metrics. It is used by the voice module. -->
+    <uses-permission android:name="android.permission.MODIFY_PHONE_STATE" tools:ignore="ProtectedPermissions"/>
+
+    <!-- Allows Echo app to receive detailed call state information. It is used by LTE and 5G modules. -->
+    <uses-permission android:name="diagandroid.phone.receiveDetailedCallState"/>
+
+    <!-- Allows Echo app to receive detailed application state information. It is used by LTE and 5G modules. -->
+    <uses-permission android:name="diagandroid.app.receiveDetailedApplicationState"/>
+
+    <!-- Allows Echo app to receive application state information. It is used by LTE and 5G modules. -->
+    <uses-permission android:name="diagandroid.app.receiveApplicationState"/>
+
+    <!--    Required by LTE data collection module to read system logs. It is used by LTE modules. -->
+    <uses-permission android:name="android.permission.READ_LOGS"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <uses-permission android:name="com.google.android.gms.permission.ACTIVITY_RECOGNITION" />
+    <!-- This permission is required for Android Q -->
+    <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION"/>
+
+    <!-- Allows an application to write from external storage for Android 11 onwards.-->
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
+
+    <!-- This permission is required for Android Q to get the data from few android packages-->
+    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES"
+        tools:ignore="QueryAllPackagesPermission" />
+
+    <application
+        android:name=".EchoLocateApplication"
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_label"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="false"
+        android:networkSecurityConfig="@xml/network_security_config"
+        tools:replace="android:label,android:allowBackup,android:usesCleartextTraffic">
+
+        <receiver
+            android:name=".userconsent.consentreader.DiagnosticConsentChangedReceiver"
+            android:permission="com.tmobile.pr.mytmobile.permission.RECEIVE_BROADCAST_INTENT">
+            <intent-filter>
+                <action android:name="com.tmobile.pr.mytmobile.intent.action.DIAGNOSTIC_CONSENT_CHANGED"></action>
+            </intent-filter>
+        </receiver>
+
+        <!--        Alarm used for Periodic triggers by LTE  Non streaming applications-->
+        <receiver android:name=".lte.delegates.BaseNonStreamDelegate$MyAlarmReceiver" />
+
+        <!--        Alarm used for Periodic triggers by LTE streaming applications-->
+        <receiver android:name=".lte.delegates.BaseStreamDelegate$MyAlarmReceiver" />
+
+        <!--        Alarm used for LTE hourly trigger-->
+        <receiver android:name=".lte.delegates.LteHourlyDelegate$HourlyTriggerReceiver" />
+
+        <!--        Alarm used for Nr5g hourly trigger-->
+        <receiver android:name="com.tmobile.mytmobile.echolocate.nr5g.core.delegates.Nr5gHourlyDelegate$HourlyTriggerReceiver" />
+
+        <!--        Alarm used for Periodic triggers by Nr5g applications-->
+        <receiver android:name="com.tmobile.mytmobile.echolocate.nr5g.core.delegates.BaseDelegate$Nr5GAlarmReceiver" />
+
+        <!--        Alarm used for resetting trigger count in Nr5g -->
+        <receiver android:name="com.tmobile.mytmobile.echolocate.nr5g.manager.Base5gDataManager$Nr5gApplicationTriggerResetReceiver" />
+
+        <!--        Alarm used for resetting trigger count in Lte -->
+        <receiver android:name="com.tmobile.mytmobile.echolocate.lte.manager.LteDataManager$LteApplicationTriggerResetReceiver" />
+
+        <!--        Alarm used for resetting trigger count in coverage -->
+        <receiver android:name=".coverage.manager.CoverageDataManager$CoverageTriggerResetReceiver" />
+
+        <receiver android:name=".analytics.intentlisteners.BaseAnalyticsBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
+
+        <!--        Provider used to handle the flags of EchoApp-DSDK handshake through external apps -->
+        <provider android:name=".dsdkHandshake.DsdkHandshakeContentProvider"
+            android:authorities="com.tmobile.mytmobile.echolocate.dsdkHandshakeAuthority"
+            android:readPermission="com.tmobile.echolocate.permission.READ_CONTENT_PROVIDER"
+            android:writePermission="com.tmobile.echolocate.permission.WRITE_CONTENT_PROVIDER"
+            android:enabled="true"
+            android:exported="true" >
+        </provider>
+
+        <!-- Service that provides activity recognition data. Setting the android:exported attribute
+   to "false" stops other apps from starting this service, even when using an explicit
+   intent. -->
+        <service
+            android:name="com.tmobile.mytmobile.echolocate.location.util.activityrecognition.ActivityRecognizedService"
+            android:exported="false" />
+
+    </application>
+</manifest>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    <androidx.appcompat.widget.Toolbar
+            android:id="@+id/dia_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="?attr/actionBarSize"
+            android:visibility="gone"
+            android:theme="@style/AppTheme"
+            app:popupTheme="@style/Theme.AppCompat.NoActionBar"
+            app:titleTextColor="@color/white" />
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        <Button
+                android:id="@+id/clear_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:padding="10dp"
+                android:text="text"
+                android:textSize="15sp" />
+
+        <Button
+                android:id="@+id/dcf_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:padding="10dp"
+                android:text="text"
+                android:textSize="15sp" />
+
+        <Button
+                android:id="@+id/issue_assist_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:padding="10dp"
+                android:text="text"
+                android:textSize="15sp" />
+
+        <Button
+                android:id="@+id/database_dump_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:padding="10dp"
+                android:text="text"
+                android:textSize="15sp" />
+
+        <Button
+                android:id="@+id/callstate_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:enabled="false"
+                android:padding="10dp"
+                android:text="text"
+                android:textSize="15sp" />
+
+        <Button
+                android:id="@+id/five_g_sa_test"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:padding="10dp"
+                android:text="text"
+                android:textSize="15sp" />
+    </LinearLayout>
+
+</LinearLayout>
+

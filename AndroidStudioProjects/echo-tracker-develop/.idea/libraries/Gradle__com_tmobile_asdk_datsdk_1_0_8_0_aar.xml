@@ -1,0 +1,16 @@
+<component name="libraryTable">
+  <library name="Gradle: com.tmobile.asdk:datsdk:1.0.8.0@aar">
+    <ANNOTATIONS>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/8c632777c7166145b31e538e16028edf/jetified-datsdk-1.0.8.0/annotations.zip!/" />
+    </ANNOTATIONS>
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/8c632777c7166145b31e538e16028edf/jetified-datsdk-1.0.8.0/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/8c632777c7166145b31e538e16028edf/jetified-datsdk-1.0.8.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/8c632777c7166145b31e538e16028edf/jetified-datsdk-1.0.8.0/res" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.tmobile.asdk/datsdk/1.0.8.0/9ae7a7107448f045f571b4f67afb3886ed888db6/datsdk-1.0.8.0-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES />
+  </library>
+</component>

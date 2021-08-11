@@ -1,0 +1,268 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.tmobile.mytmobile.echolocate">
+
+    <application
+        android:name=".EchoLocateApplication"
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_label"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:requestLegacyExternalStorage="true"
+        android:networkSecurityConfig="@xml/network_security_config"
+        tools:replace="android:label,android:allowBackup,android:usesCleartextTraffic"
+        android:usesCleartextTraffic="false"
+        tools:ignore="GoogleAppIndexingWarning,LockedOrientationActivity">
+
+        <!--Not sure why this is needed but the application is crashing after adding heartbeat sdk. -->
+        <meta-data android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version"/>
+
+        <!-- Service that provides activity recognition data. Setting the android:exported attribute
+        to "false" stops other apps from starting this service, even when using an explicit
+        intent. -->
+        <service
+            android:name="com.tmobile.mytmobile.echolocate.location.util.activityrecognition.ActivityRecognizedService"
+            android:exported="false" />
+
+        <activity
+            android:name=".playground.activities.HomeActivity"
+            android:screenOrientation="portrait"
+            android:launchMode="singleTop"
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".playground.activities.LocationActivity" android:launchMode="singleTop" />
+        <activity android:name=".playground.activities.UserConsentActivity" android:launchMode="singleTop" />
+        <activity
+            android:name=".playground.activities.VoiceActivity"
+            android:label="@string/voice"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".playground.activities.ReportActivity"
+            android:label="@string/reporting"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".playground.activities.AuthActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".playground.activities.LteActivity"
+            android:label="@string/lte"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".playground.activities.Nr5gActivity"
+            android:label="@string/nr5g"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".playground.activities.AnalyticsActivity"
+            android:label="@string/analytics"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".playground.activities.ConfigurationActivity"
+            android:label="@string/configuration_label"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".playground.activities.CoverageActivity"
+            android:label="@string/coverage"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name=".playground.activities.DeviceInfoActivity"
+            android:label="@string/deviceInfo"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name=".playground.activities.FlavorConfigActivity"
+            android:label="@string/flavorInfo"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".playground.activities.TestPublicAPIActivity"
+            android:label="@string/testPublicApi"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".playground.activities.NetworkScanActivity"
+            android:label="@string/networkScan"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".playground.activities.LTEDataMetricsActivity"
+            android:label="@string/lteDataMetrics"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name=".playground.activities.NSA5GDataMetricsActivity"
+            android:label="@string/pocToolsNsa5gDataMetrics"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".playground.activities.HeartBeatActivity" android:launchMode="singleTop" />
+        <activity android:name=".playground.activities.HeartBeatHistoryActivity" android:launchMode="singleTop" />
+        <activity android:name=".playground.activities.AutoUpdateActivity" android:launchMode="singleTop" />
+        <activity android:name=".playground.activities.CrashTestActivity" android:launchMode="singleTop" />
+        <activity android:name=".playground.activities.CopyAppDataActivity" android:launchMode="singleTop" />
+        <activity android:name=".TestActivity" />
+        <activity
+            android:name=".playground.activities.DeviceInfoActivity"
+            android:label="@string/deviceInfo"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name=".playground.activities.OEMToolHomeActivity"
+            android:label="@string/pocTools"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity
+            android:name=".playground.activities.OEMToolVoiceActivity"
+            android:label="@string/pocToolsVoice"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name=".playground.activities.OEMToolAdbCommands"
+            android:label="@string/pocToolsAdb"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name=".playground.activities.OEMToolSa5gDataMetricsActivity"
+            android:label="@string/pocTools5gSaDataMetrics"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".playground.activities.LocationActivity" android:launchMode="singleTop" />
+
+        <receiver
+            android:name=".userconsent.consentreader.DiagnosticConsentChangedReceiver"
+            android:permission="com.tmobile.pr.mytmobile.permission.RECEIVE_BROADCAST_INTENT">
+            <intent-filter>
+                <action android:name="com.tmobile.pr.mytmobile.intent.action.DIAGNOSTIC_CONSENT_CHANGED" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".analytics.intentlisteners.BaseAnalyticsBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
+
+        <!--        Alarm used for Periodic triggers by LTE  Non streaming applications-->
+        <receiver android:name=".lte.delegates.BaseNonStreamDelegate$MyAlarmReceiver" />
+
+        <!--        Alarm used for Periodic triggers by LTE streaming applications-->
+        <receiver android:name=".lte.delegates.BaseStreamDelegate$MyAlarmReceiver" />
+
+        <!--        Alarm used for LTE hourly trigger-->
+        <receiver android:name=".lte.delegates.LteHourlyDelegate$HourlyTriggerReceiver" />
+
+        <!--        Alarm used for Nr5g hourly trigger-->
+        <receiver android:name="com.tmobile.mytmobile.echolocate.nr5g.core.delegates.Nr5gHourlyDelegate$HourlyTriggerReceiver" />
+
+        <!--        Alarm used for Periodic triggers by Nr5g applications-->
+        <receiver android:name="com.tmobile.mytmobile.echolocate.nr5g.core.delegates.BaseDelegate$Nr5GAlarmReceiver" />
+
+        <!--        Alarm used for resetting trigger count in Nr5g -->
+        <receiver android:name="com.tmobile.mytmobile.echolocate.nr5g.manager.Base5gDataManager$Nr5gApplicationTriggerResetReceiver" />
+
+        <!--        Alarm used for resetting trigger count in Lte -->
+        <receiver android:name="com.tmobile.mytmobile.echolocate.lte.manager.LteDataManager$LteApplicationTriggerResetReceiver" />
+
+        <!--        Alarm used for resetting trigger count in coverage -->
+        <receiver android:name=".coverage.manager.CoverageDataManager$CoverageTriggerResetReceiver" />
+
+        <!--        Provider used to handle the flags of EchoApp-DSDK handshake through external apps -->
+        <provider android:name=".dsdkHandshake.DsdkHandshakeContentProvider"
+            android:authorities="com.tmobile.mytmobile.echolocate.dsdkHandshakeAuthority"
+            android:readPermission="com.tmobile.echolocate.permission.READ_CONTENT_PROVIDER"
+            android:writePermission="com.tmobile.echolocate.permission.WRITE_CONTENT_PROVIDER"
+            android:enabled="true"
+            android:exported="true" >
+        </provider>
+
+    </application>
+
+    <!-- Allows other applications to read the data for EchoApp-DSDK handshake from content provider -->
+    <permission
+        android:description="@string/provider_read_permission_description"
+        android:label="@string/provider_read_permission_label"
+        android:name="com.tmobile.echolocate.permission.READ_CONTENT_PROVIDER"
+        android:protectionLevel="signature"/>
+
+    <!-- Allows other applications to write the data for EchoApp-DSDK handshake using content provider -->
+    <permission
+        android:description="@string/provider_read_permission_description"
+        android:label="@string/provider_read_permission_label"
+        android:name="com.tmobile.echolocate.permission.WRITE_CONTENT_PROVIDER"
+        android:protectionLevel="signature"/>
+
+    <!-- Allows other applications to receive the broadcast -->
+    <permission
+        android:description="@string/permission_broadcast_intents_description"
+        android:label="@string/permission_broadcast_intents_label"
+        android:name="com.tmobile.echolocate.permission.RECEIVE_BROADCAST_INTENT"
+        android:protectionLevel="signature"/>
+
+    <!-- Allows an application to send authorized broadcast (receiver will check if broadcaster has this permission) -->
+    <uses-permission android:name="com.tmobile.echolocate.permission.RECEIVE_BROADCAST_INTENT"/>
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <!-- Allows an app to access location while app is background. -->
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_NUMBERS" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+
+    <!--Allows applications to access information about networks.-->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- Allows an application to write from external storage for Android 11 onwards.-->
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
+
+    <!--    Used to read consent flags from TMO App-->
+    <uses-permission android:name="com.tmobile.pr.mytmobile.permission.READ_CONTENT_PROVIDER"/>
+    <uses-permission android:name="com.tmobile.pr.mytmobile.permission.RECEIVE_BROADCAST_INTENT"/>
+
+
+    <uses-permission android:name="diagandroid.phone.receiveDetailedCallState"/>
+    <uses-permission android:name="diagandroid.app.receiveDetailedApplicationState"/>
+    <uses-permission android:name="diagandroid.app.receiveApplicationState"/>
+
+    <!--    Required by LTE data collection module to read system logs-->
+    <uses-permission
+        android:name="android.permission.READ_LOGS"
+        tools:ignore="ProtectedPermissions" />
+
+    <!--Required this permission to get IMEI on Android Q-->
+    <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <uses-permission android:name="com.google.android.gms.permission.ACTIVITY_RECOGNITION" />
+
+    <!-- This permission is required for Android Q -->
+    <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION"/>
+
+</manifest>

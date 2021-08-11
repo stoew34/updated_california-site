@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <Button
+        android:id="@+id/btn_history"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="16dp"
+        android:onClick="onHistoryClicked"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="History"/>
+
+    <Button
+        android:id="@+id/generateBtn"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="16dp"
+        android:onClick="onGenerateClicked"
+        android:text="@string/generateheartbeatdata"
+        app:layout_constraintTop_toBottomOf="@id/btn_history"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ScrollView
+        android:id="@+id/scrollView_result"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="8dp"
+        android:background="@drawable/module_grid_bg"
+        android:padding="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/generateBtn">
+        <TextView
+            android:id="@+id/heartBeatTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:textColor="#000"/>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

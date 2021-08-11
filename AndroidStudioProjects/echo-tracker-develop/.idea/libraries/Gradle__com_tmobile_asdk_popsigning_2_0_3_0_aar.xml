@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Gradle: com.tmobile.asdk:popsigning:2.0.3.0@aar">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/09509bea23dabe4e5f953a2edf3375fb/jetified-popsigning-2.0.3.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/09509bea23dabe4e5f953a2edf3375fb/jetified-popsigning-2.0.3.0/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/09509bea23dabe4e5f953a2edf3375fb/jetified-popsigning-2.0.3.0/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.tmobile.asdk/popsigning/2.0.3.0/3e2a46f7dd31d3a514afd3da825470242f727f4b/popsigning-2.0.3.0-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES />
+  </library>
+</component>

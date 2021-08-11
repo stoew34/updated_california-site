@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Gradle: com.tmobile.asdk:commonssdk:1.0.8.0@aar">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/feb52dbaa986a70723a5f68281c67300/jetified-commonssdk-1.0.8.0/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/feb52dbaa986a70723a5f68281c67300/jetified-commonssdk-1.0.8.0/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/feb52dbaa986a70723a5f68281c67300/jetified-commonssdk-1.0.8.0/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.tmobile.asdk/commonssdk/1.0.8.0/2b4a445c858a7d0135496c69696e969444890e62/commonssdk-1.0.8.0-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES />
+  </library>
+</component>
